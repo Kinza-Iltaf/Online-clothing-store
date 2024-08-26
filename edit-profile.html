@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        .edit-profile {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #101111;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #525456;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="header">
+      <div class="container"> 
+          <img class="logo" src="pew-removebg-preview.png" alt="logo">
+          <a href="shopping-cart-link.html">
+              <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+          </a>
+          <a href="search-page-link.html">
+              <img class="search" src="icons8-search.gif" alt="search"/>
+          </a>
+          <input class="newinput"  type="text" placeholder="I'm shopping for">
+          <a href="index.html" id="accountIcon">
+            <img class="account" src="accountnew.gif" alt="account"/>
+        </a> 
+         
+      </div>
+      </div>
+      <br>
+      <div class="nav">
+          <!-- navigation -->
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+    
+                  <!-- Women Dropdown -->
+                  <li class="dropdown">
+                      <a href="women.html" class="dropbtn">Women</a>
+                      <div class="dropdown-content">
+                          <a href="women.html">Daily Wear </a>
+                          <a href="women.html">Formal</a>
+                          <div class="sub-dropdown">
+                              <a href="women-westernwear.html">Western Wear</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-westernwear.html">Jeans</a>
+                                  <a href="women-westernwear.html">Blazer</a>
+                                  <a href="women-westernwear.html">Formal Shirts</a>
+                               
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="women-eastern.html">Eastern</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-eastern.html">Gown</a>
+                                  <a href="women-eastern.html">Sharara</a>
+                             
+                                  <a href="women-eastern.html">Kurti</a>
+    
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <!-- Men Dropdown -->
+                  <li class="dropdown">
+                      <a href="men.html" class="dropbtn">Men</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="men.html">Ethereal</a>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="men.html">Kurtas</a>
+                          </div>
+                          <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+    
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                      </div>
+                  </li>
+    
+                  <!-- Kids Dropdown -->
+                  <li class="dropdown">
+                      <a href="kids.html" class="dropbtn">Kids</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Girls</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                                
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Boys</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <li><a href="#new-arrival-section">New Arrival</a></li>
+                  <li><a href="#">Best Seller</a></li>
+                  <li><a href="user-dashboard.html">Dashboard</a></li>
+                  <li><a href="Sale.html">Sale</a></li>
+              </ul>
+          </nav>
+      </div>
+    <div class="edit-profile">
+        <h1>Edit Profile</h1>
+        <form action="update-profile.php" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"  placeholder="User name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"  placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"  placeholder="Phone number" required>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px; /* Add padding to create space on the left and right margins 
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the items 
+}
+
+.item {
+  width: 200px; /* Adjust width as needed 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;  Include padding and border in item width 
+  background-color: #fff;  Add background color to the item to match image container 
+}
+
+.item .image-container {
+  width: 100%;
+  height: 200px; Adjust height as needed 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fff;  Add a background color to match the item 
+}
+
+.item img {
+  width: 600px;
+  max-height: 100%;
+  object-fit: contain; Maintain aspect ratio and fit within the container 
+  border-radius: 100px;
+ 
+}
+
+.details {
+  text-align: center;
+}
+
+.details h3 {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.details p {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+} */
+
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Item Detail Page Styles */
+.item-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px; /* Adjust max-width as needed */
+}
+
+
+
+
+
+
+
+
+/* .details-right {
+  text-align: left;
+}
+
+.item-detail h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.item-detail #itemPrice {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.size-options {
+  margin-top: 20px;
+}
+
+.size-options h3 {
+  font-size: 1.1em;
+}
+
+.size-buttons {
+  margin-top: 10px;
+}
+
+.size-buttons button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.size-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity {
+  margin-top: 20px;
+}
+
+.quantity h3 {
+  font-size: 1.1em;
+}
+
+.quantity-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-buttons button {
+  padding: 8px 12px;
+  font-size: 1em;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity-buttons span {
+  margin: 0 10px;
+}
+
+.add-to-cart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+.size-buttons button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.size-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.size-buttons button.selected {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+/* .badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+} */
+

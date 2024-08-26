@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Function to update the cart badge
+        function updateCartBadge() {
+            let cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartBadge').innerText = cartCount;
+        }
+    
+        // Call update function on page load
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartBadge();
+    });
+
+    function updateCartBadge() {
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = cartCount;
+        }
+    }
+
+    </script>
+    <style>
+        #twoau{
+            font-size: 23px;
+            background-color: black;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height: 50px;
+           width: 100%;
+            text-align: center;
+            padding-top:  10px;
+            padding-bottom: 10px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+     
+
+        #para {
+    background-color: #F2F2F2;
+    height: 1500px;
+    width: 750px;
+    margin-top: 80px;
+    padding: 55px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-direction: column; /* Ensure items stack vertically */
+    border-radius: 10px;
+}
+
+#brone {
+    display: block; /* Makes <br> act as a block-level element */
+    height: 2px; /* Adjust the space between lines */
+    content: "";
+    
+}
+
+
+      
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="header">
+      <div class="container">
+          <img class="logo" src="pew-removebg-preview.png" alt="logo">
+          <a href="shopping-cart-link.html">
+              <div class="cart-container">
+                  <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                  <span id="cartBadge" class="cart-badge">0</span>
+              </div>
+          </a>
+          <a href="search-page-link.html">
+              <img class="search" src="icons8-search.gif" alt="search"/>
+          </a>
+          <input class="newinput" type="text" placeholder="I'm shopping for">
+          <a href="index.html" id="accountIcon">
+              <img class="account" src="accountnew.gif" alt="account"/>
+          </a>
+      </div>
+  </div>
+  
+      <div class="nav">
+          <!-- navigation -->
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+    
+                  <!-- Women Dropdown -->
+                  <li class="dropdown">
+                      <a href="women.html" class="dropbtn">Women</a>
+                      <div class="dropdown-content">
+                          <a href="women.html">Daily Wear </a>
+                          <a href="women.html">Formal</a>
+                          <div class="sub-dropdown">
+                              <a href="women-westernwear.html">Western Wear</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-westernwear.html">Jeans</a>
+                                  <a href="women-westernwear.html">Blazer</a>
+                                  <a href="women-westernwear.html">Formal Shirts</a>
+                               
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="women-eastern.html">Eastern</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-eastern.html">Gown</a>
+                                  <a href="women-eastern.html">Sharara</a>
+                             
+                                  <a href="women-eastern.html">Kurti</a>
+    
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <!-- Men Dropdown -->
+                  <li class="dropdown">
+                      <a href="men.html" class="dropbtn">Men</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="men.html">Ethereal</a>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="men.html">Kurtas</a>
+                          </div>
+                          <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+    
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                      </div>
+                  </li>
+    
+                  <!-- Kids Dropdown -->
+                  <li class="dropdown">
+                      <a href="kids.html" class="dropbtn">Kids</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Girls</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                                
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Boys</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <li><a href="index.html">New Arrival</a></li>
+                  <li><a href="user-dashboard.html">Dashboard</a></li>
+                  <li><a href="Sale.html">Sale</a></li>
+              </ul>
+          </nav>
+      </div>
+
+    <h2  id="twoau">About Us</h2>
+    <div id="au">
+<p id="para">
+
+Like a fairy tale weaved and spun with magic threads, the story of Elegance Emporium started with a dream over half a century back. A subsidiary of the Sadaqat Group, that has won respect and awards all over the world, the vision of Elegance Emporium is to make the same quality available here in Pakistan. 
+<br id="brone">
+
+The moment you enter one of our stores you will experience a new level of serenity and good taste. Worth mentioning is that you can take the very same experience and class home; simply by selecting the product of your choice individually or in combination with the coordinated theme.
+<br id="brone">
+
+The magic for Elegance Emporium, a subsidiary of the famous Sadaqat Group began over half a century ago. The magic wand of the well-respected Sadaqat Group began flashing in 1951 and helped them win hearts of millions and many achievement awards in the process as well. For decades people of Pakistan have been praising high quality of imported clothes or clothes in abroad countries, Elegance Emporium's vision is to provide our proud Pakistani clients with the same level of luxury materials without the added costs of importing them. It is our topmost priority to gain trust of our valued customers by providing trustworthy products and services.
+<br  id="brone">
+
+In the past our parent group has been involved in supplying top quality products to leading global brands, with Elegance Emporium, the time is here to provide the best in class quality materials for our proud home country clients. We have designed unique ways to achieve that in the shape of both Elegance Emporium shopping and Online Shopping. Our innovative Online Shopping stores are the solution to the troublesome traditional shopping ways for customers where they had to get to the store outlet in the busy traffic situations, and on occasions only to find that the product they like is out of stock. With Elegance Emporium's innovative Online Shopping you can order the designs of your preference and we will make sure the product of your choice gets delivered to you using through best Pakistan delivery system.
+<br  id="brone">
+
+To complement this innovation in Online Shopping, our Elegance Emporium stores have evolved with the continued success as well. At our market beating Elegance Emporium stores we have arranged products in shape of themes, which you can select as a whole package or select an individual item depending on your taste and choice. Our beautifully crafted state-of-the-art stores make our respected feel cared for and wanted as soon as they walk in. Our most experienced and skilled staff at Elegance Emporium is always happily ready to assist you in any decision making processes that you may require, just feel free to ask them about Elegance Emporium products and any of your queries and they will satisfy you better than any other store in the market.
+<br  id="brone">
+
+The positive response from our valued Online Shopping customers and Elegance Emporium customers is a testimony of our success, and we aim to keep the good work up by providing market beating innovative and fresh designs while keeping our tradition of using great top of the line materials. Feel free to contact any of our representatives at Elegance Emporium store of your choice if you need assistance about any Elegance Emporium products. Our enthusiastic skilled staff members are always waiting to help you with any relevant information that you might need.
+
+        </p>
+   
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h2 >Get in touch</h2>
+                    <ul class="contact-info">
+                        <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                        <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                        <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+                    </ul>
+                    <ul class="footer-social-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Customer Support</h2>
+                    <ul>
+                        <li><a href="shipping.html">Shipping And Handling</a></li>
+                        <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                        <li><a href="faqs.html">Help & FAQs</a></li>
+                        <li><a href="product-reviews.html">Reviews And Rating</a></li>
+                      
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2>Customer Queries</h2>
+                    <ul>
+                
+                       
+                        <li><a href="term-and-services.html">Terms of Service</a></li>
+                        <li><a href="track_order.html">Track Your Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Quick Links</h2>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="Contact-us.html"> Contact Us</a></li>
+                      
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Sign up and save</h2>
+                    <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+          </footer>
+</body>
+</html>

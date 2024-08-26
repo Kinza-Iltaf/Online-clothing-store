@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Term Of Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Function to update the cart badge
+        function updateCartBadge() {
+            let cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartBadge').innerText = cartCount;
+        }
+    
+        // Call update function on page load
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartBadge();
+    });
+
+    function updateCartBadge() {
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = cartCount;
+        }
+    }
+
+    </script>
+         <style>
+        #twoau{
+            font-size: 23px;
+            background-color: black;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height: 50px;
+           width: 100%;
+            text-align: center;
+            padding-top:  10px;
+            padding-bottom: 10px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+     
+
+        #para {
+    background-color: #F2F2F2;
+    height: 2000px;
+    width: 750px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    padding: 55px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-direction: column; /* Ensure items stack vertically */
+    border-radius: 10px;
+}
+
+#brone {
+    display: block; /* Makes <br> act as a block-level element */
+    height: 2px; /* Adjust the space between lines */
+    content: "";
+    
+}
+
+#boldtas{
+    font-size: 20px;
+    background-color:  #F2F2F2;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+    </style>
+</head>
+<body>
+
+    <div class="top"></div>
+    <div class="header">
+      <div class="container">
+          <img class="logo" src="pew-removebg-preview.png" alt="logo">
+          <a href="shopping-cart-link.html">
+              <div class="cart-container">
+                  <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                  <span id="cartBadge" class="cart-badge">0</span>
+              </div>
+          </a>
+          <a href="search-page-link.html">
+              <img class="search" src="icons8-search.gif" alt="search"/>
+          </a>
+          <input class="newinput" type="text" placeholder="I'm shopping for">
+          <a href="index.html" id="accountIcon">
+              <img class="account" src="accountnew.gif" alt="account"/>
+          </a>
+      </div>
+  </div>
+  
+      <div class="nav">
+          <!-- navigation -->
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+    
+                  <!-- Women Dropdown -->
+                  <li class="dropdown">
+                      <a href="women.html" class="dropbtn">Women</a>
+                      <div class="dropdown-content">
+                          <a href="women.html">Daily Wear </a>
+                          <a href="women.html">Formal</a>
+                          <div class="sub-dropdown">
+                              <a href="women-westernwear.html">Western Wear</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-westernwear.html">Jeans</a>
+                                  <a href="women-westernwear.html">Blazer</a>
+                                  <a href="women-westernwear.html">Formal Shirts</a>
+                               
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="women-eastern.html">Eastern</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-eastern.html">Gown</a>
+                                  <a href="women-eastern.html">Sharara</a>
+                             
+                                  <a href="women-eastern.html">Kurti</a>
+    
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <!-- Men Dropdown -->
+                  <li class="dropdown">
+                      <a href="men.html" class="dropbtn">Men</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="men.html">Ethereal</a>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="men.html">Kurtas</a>
+                          </div>
+                          <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+    
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                      </div>
+                  </li>
+    
+                  <!-- Kids Dropdown -->
+                  <li class="dropdown">
+                      <a href="kids.html" class="dropbtn">Kids</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Girls</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                                
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Boys</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <li><a href="index.html">New Arrival</a></li>
+                  <li><a href="user-dashboard.html">Dashboard</a></li>
+                  <li><a href="Sale.html">Sale</a></li>
+              </ul>
+          </nav>
+      </div>
+
+
+
+    <h2  id="twoau">Terms of Service for Elegance Emporium</h2>
+    <div id="au">
+<p id="para">
+   <b id="boldtas">Overview</b>
+    This website is operated by Elegance Emporium. Throughout the site, the terms “we”, “us” and “our” refer to Elegance Emporium. By visiting our site and/or purchasing something from us, you agree to be bound by these Terms of Service.
+<br id="brone">
+<b id="boldtas">Online Store Terms</b>
+By using our site, you confirm that you are of legal age in your area. You agree not to use our products for any illegal purposes. Any breach of these terms will result in termination of services.
+<br id="brone">
+<b  id="boldtas">General Conditions</b>
+We reserve the right to refuse service to anyone. Your content may be transferred unencrypted across networks. You agree not to reproduce, duplicate, or exploit any part of the service without our permission.
+<br  id="brone">
+<b  id="boldtas">Accuracy of Information</b>
+We are not responsible if information on this site is not accurate or complete. We reserve the right to modify content at any time.
+<br  id="brone">
+<b  id="boldtas">Modifications to Services and Prices</b>
+Prices and services are subject to change without notice. We are not liable for any modifications, price changes, or discontinuance of services.
+<br  id="brone">
+<b   id="boldtas">Products or Services</b>
+Some products or services may be available exclusively online with limited quantities and are subject to our Return Policy. We do our best to display colors and images accurately but cannot guarantee your monitor’s display.
+<br  id="brone">
+<b   id="boldtas">Billing and Account Information</b>
+We may refuse or limit orders. You agree to provide accurate and complete purchase and account information. Update your account details promptly to ensure smooth transactions
+
+
+<br  id="brone">
+<b  id="boldtas">Optional Tools</b>
+We may provide access to third-party tools without monitoring or control. Use these tools at your own risk.
+
+
+<br  id="brone">
+<b   id="boldtas">Third-Party Links</b>
+Our site may contain links to third-party websites. We are not responsible for the content or accuracy of these sites and do not endorse them.
+
+<br  id="brone">
+<b  id="boldtas">User Comments and Feedback</b>
+By submitting comments or feedback, you agree we can use them in any way. We are not obligated to keep comments confidential or to respond to them.
+
+<br  id="brone">
+<b  id="boldtas">Personal Information</b>
+Your submission of personal information is governed by our Privacy Policy.
+
+<br  id="brone">
+<b id="boldtas">Errors, Inaccuracies, and Omissions</b>
+Occasionally there may be information on our site that contains errors or inaccuracies. We reserve the right to correct any errors and to change or update information at any time.
+
+
+
+<br  id="brone">
+<b id="boldtas">Prohibited Uses</b>
+You are prohibited from using the site for unlawful purposes, to solicit others to perform unlawful acts, to violate laws, to infringe upon our or others' rights, to harass others, to submit false information, to upload harmful code, and more.
+
+
+<br  id="brone">
+<b id="boldtas">Disclaimer of Warranties; Limitation of Liability</b>
+We do not guarantee that your use of our service will be uninterrupted or error-free. The service and products are provided "as is" and "as available" without any warranties of any kind. We are not liable for any direct or indirect damages arising from your use of the service or products.
+
+
+<br  id="brone">
+<b id="boldtas">Indemnification</b>
+You agree to indemnify Elegance Emporium and our affiliates, officers, directors, agents, and employees from any claims arising from your breach of these terms
+
+
+<br  id="brone">
+<b  id="boldtas">Severability</b>
+If any part of these terms is found to be unenforceable, the remaining provisions will continue in full force.
+
+
+<br  id="brone">
+<b  id="boldtas">Termination</b>
+These terms are effective unless terminated by either you or us. We may terminate your access if you violate these terms.
+
+
+<br  id="brone">
+<b  id="boldtas">Entire Agreement</b>
+These terms constitute the entire agreement between you and Elegance Emporium and govern your use of our services.
+
+
+<br  id="brone">
+<b  id="boldtas">Governing Law</b>
+These terms and any separate agreements are governed by the laws of our jurisdiction.
+
+
+<br  id="brone">
+<b  id="boldtas">Changes to Terms of Service</b>
+We reserve the right to update these terms at any time. Your continued use of our site constitutes acceptance of the changes.
+
+
+<br  id="brone">
+
+<b  id="boldtas">Contact Information</b>
+Questions about the Terms of Service should be sent to us at info@eleganceemporium.com.
+
+        </p>  
+
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h2 >Get in touch</h2>
+                    <ul class="contact-info">
+                        <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                        <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                        <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+                    </ul>
+                    <ul class="footer-social-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Customer Support</h2>
+                    <ul>
+                        <li><a href="shipping.html">Shipping And Handling</a></li>
+                        <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                        <li><a href="faqs.html">Help & FAQs</a></li>
+                        <li><a href="product-reviews.html">Reviews And Rating</a></li>
+                      
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2>Customer Queries</h2>
+                    <ul>
+                
+                       
+                        <li><a href="term-and-services.html">Terms of Service</a></li>
+                        <li><a href="track_order.html">Track Your Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Quick Links</h2>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="Contact-us.html"> Contact Us</a></li>
+                      
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h2 >Sign up and save</h2>
+                    <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+          </footer>
+</body>
+</html>

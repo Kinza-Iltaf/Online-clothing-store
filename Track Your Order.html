@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order</title>
+    <link rel="stylesheet" href="track.css">
+</head>
+<body>
+
+<div class="track-container">
+    <h1>Track Your Order</h1>
+    <form action="track_order.php" method="POST">
+        <div class="track-form-group">
+            <label for="order-id">Order ID</label>
+            <input type="text" id="order-id" name="order_id" required>
+        </div>
+        <div class="track-form-group">
+            <label for="mobile-number">Mobile Number</label>
+            <input type="tel" id="mobile-number" name="mobile_number" required>
+        </div>
+        <button type="submit">Track Order</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* faq.css */
+
+#twofaqs{
+    font-size: 23px;
+    background-color: black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 45px;
+   width: 100%;
+    text-align: center;
+    padding-top:  10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 90px;
+}
+
+
+/* Container for the FAQ section */
+.faq-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+/* Individual FAQ item styling */
+.faq-item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 800px;
+   
+
+   
+
+}
+
+/* FAQ question styling */
+.faq-item .faq-question {
+    /* background-color: #f2f2f2; */
+    padding: 25px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    background-color: #f2f2f2;
+}
+
+/* Text of the FAQ question */
+.faq-item .faq-question .question-text {
+    font-size: 16px;
+    flex: 1; /* Allow text to take remaining space */
+    background-color: #f2f2f2;
+}
+
+/* Toggle button styling */
+.faq-item .faq-question .toggle-button {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* Text color */
+    background-color: #000; /* Background color */
+    height: 60px; /* Match height of the question box */
+    width: 70px; /* Set width for the toggle button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Remove default border */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* Hover effect for the toggle button */
+.faq-item .faq-question .toggle-button:hover {
+    background-color: #333; /* Darker background color on hover */
+}
+
+/* Answer section styling */
+.faq-item .faq-answer {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* Active state for showing the answer */
+.faq-item .faq-answer.active {
+    display: block;
+}

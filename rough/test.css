@@ -1,0 +1,228 @@
+/* styles.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.faq-section {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: #f2f2f2;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for positioning the toggle button 
+}
+
+.question-text {
+    font-size: 16px;
+}
+
+.toggle-button {
+   
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* Text color 
+    background-color: #000; /* Background color 
+    height: 50px; /* Match height of the question box 
+    width: 50px; /* Set width for the toggle button 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Remove default border 
+    transition: background-color 0.3s; /* Smooth background color transition 
+}
+
+.toggle-button:hover {
+    background-color: #524d4d; /* Darker background color on hover 
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+} */
+/* styles.css */
+
+/* styles.css */
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.policy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; */
+    /* flex-wrap: wrap;
+     /* Allow buttons to wrap if necessary */
+    /* margin-bottom: 20px;
+} */ 
+
+/* .policy-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    margin: 10px;
+    width: 150px; Set width and height to be equal for square shape
+    height: 150px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.policy-button:hover {
+    background-color: #333;
+}
+
+.policy-info {
+    display: none; Hide all policy info sections initially
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.policy-info.active {
+    display: block; Show the active policy info section
+}
+
+.policy-info h3 {
+    margin-top: 0;
+} */
+
+/* General navigation styles */
+/* General navigation styles */
+.nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.nav nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav nav ul li {
+    float: left;
+    position: relative;
+}
+
+.nav nav ul li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav nav ul li a:hover, .dropdown:hover .dropbtn {
+    background-color: #111;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 600px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+    display: flex;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .column {
+    padding: 10px;
+    flex: 1;
+}
+
+.dropdown-content .column h3 {
+    margin-top: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* Sub-dropdown content */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Show the sub-dropdown menu on hover */
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
+/* Links inside the sub-dropdown */
+.sub-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Change color of sub-dropdown links on hover */
+.sub-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+

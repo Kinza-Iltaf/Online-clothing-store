@@ -1,0 +1,36 @@
+ #womanmi {
+    max-width: 100%;
+    height: auto;
+  }
+  #womancat {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    flex-wrap: wrap; /* Wrap to the next line if needed */
+    gap: 20px; /* Add space between items */
+    text-align: center; /* Center text under images */
+  }
+
+  .category-item {
+    width: 200px; /* Adjust width as needed */
+    height: auto;
+  }
+
+  .category-item a {
+    display: block;
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Adjust text color as needed */
+  }
+
+  .category-item img {
+    width: 200px; /* Make images fit the container */
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover; /* Ensure images cover the area */
+    gap: 10px;
+    
+  }
+
+  .category-item p {
+    margin: 5px 0 0; /* Add space above the text */
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }

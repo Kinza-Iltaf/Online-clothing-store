@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids</title>
+    <link rel="stylesheet" href="woman.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="man.css">
+    <link rel="stylesheet" href="kid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+      // Function to update the cart badge
+      function updateCartBadge() {
+          let cartCount = localStorage.getItem('cartCount') || 0;
+          document.getElementById('cartBadge').innerText = cartCount;
+      }
+  
+      // Call update function on page load
+    
+  document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge();
+  });
+
+  function updateCartBadge() {
+      let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+      const badge = document.getElementById('cartBadge');
+      if (badge) {
+          badge.innerText = cartCount;
+      }
+  }
+
+  </script>
+</head>
+<body>
+  <div class="top"></div>
+  <div class="header">
+    <div class="container">
+        <img class="logo" src="pew-removebg-preview.png" alt="logo">
+        <a href="shopping-cart-link.html">
+            <div class="cart-container">
+                <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                <span id="cartBadge" class="cart-badge">0</span>
+            </div>
+        </a>
+        <a href="search-page-link.html">
+            <img class="search" src="icons8-search.gif" alt="search"/>
+        </a>
+        <input class="newinput" type="text" placeholder="I'm shopping for">
+        <a href="index.html" id="accountIcon">
+            <img class="account" src="accountnew.gif" alt="account"/>
+        </a>
+    </div>
+</div>
+
+    <div class="nav">
+        <!-- navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+  
+                <!-- Women Dropdown -->
+                <li class="dropdown">
+                    <a href="women.html" class="dropbtn">Women</a>
+                    <div class="dropdown-content">
+                        <a href="women.html">Daily Wear </a>
+                        <a href="women.html">Formal</a>
+                        <div class="sub-dropdown">
+                            <a href="women-westernwear.html">Western Wear</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-westernwear.html">Jeans</a>
+                                <a href="women-westernwear.html">Blazer</a>
+                                <a href="women-westernwear.html">Formal Shirts</a>
+                             
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="women-eastern.html">Eastern</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-eastern.html">Gown</a>
+                                <a href="women-eastern.html">Sharara</a>
+                           
+                                <a href="women-eastern.html">Kurti</a>
+  
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <!-- Men Dropdown -->
+                <li class="dropdown">
+                    <a href="men.html" class="dropbtn">Men</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="men.html">Ethereal</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Kurtas</a>
+                        </div>
+                        <div class="sub-dropdown">
+                          <a href="men.html">Western</a>
+                      </div>
+  
+                      <div class="sub-dropdown">
+                          <a href="men.html">Active Wear</a>
+                      </div>
+                    </div>
+                </li>
+  
+                <!-- Kids Dropdown -->
+                <li class="dropdown">
+                    <a href="kids.html" class="dropbtn">Kids</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Girls</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                              
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Boys</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <li><a href="index.html">New Arrival</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        </nav>
+    </div>
+  
+  
+  
+    
+    <br>
+    <img id="kids" src="for now/main kid.jpg" alt="main image">
+
+    <h3 id="na">Kids's Category</h3>
+    <div class="kids-category-container">
+        <div class="kids-category-item">
+            <a href="#boys-east-section">
+                <img src="newdress/kids/kid boys/eastern/kid boy fiiinla.jpg" alt="Unstitched">
+                <p>Boys Eastern</p>
+            </a>
+        </div>
+
+        <div class="kids-category-item">
+            <a href="#boys-west-section">
+                <img src="newdress/kids/kid boys/western/kid boy western.jpg" alt="Daily Wear">
+                <p>Boys Western</p>
+            </a>
+        </div>
+
+        <div class="kids-category-item">
+            <a href="#girls-eastern-section">
+                <img src="newdress/kids/kid girls/eastern/kid gril final.jpg" alt="Daily Wear">
+                <p>Girls Eastern</p>
+            </a>
+        </div>
+
+
+        <div class="kids-category-item">
+            <a href="#girls-western-section">
+                <img src="newdress/kids/kid girls/western/kid girls fulsion.jpg" alt="Daily Wear">
+                <p>Girls Western</p>
+            </a>
+        </div>
+    </div>
+
+
+       
+        <h3 id="na">Boys Eastern</h3>
+
+        <section id="boys-east-section">
+          <div class="image-gallery" id="boy-east-gallery">
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be1">
+                  <img src="newdress/kids/kid boys/eastern/be1.webp" alt="Clothing Image 1">
+                </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Lawn</h3>
+                <p>PKR 5000</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be2">
+                    <img src="newdress/kids/kid boys/eastern/be2.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be3">
+                    <img src="newdress/kids/kid boys/eastern/be3.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be4">
+                    <img src="newdress/kids/kid boys/eastern/be4.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be5">
+                    <img src="newdress/kids/kid boys/eastern/be5.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be6">
+                    <img src="newdress/kids/kid boys/eastern/be6.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be7">
+                    <img src="newdress/kids/kid boys/eastern/be7.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be8">
+                    <img src="newdress/kids/kid boys/eastern/be8.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be9">
+                    <img src="newdress/kids/kid boys/eastern/be9.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be10">
+                    <img src="newdress/kids/kid boys/eastern/be10.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be11">
+                    <img src="newdress/kids/kid boys/eastern/be11.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be12">
+                    <img src="newdress/kids/kid boys/eastern/be12.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be13">
+                    <img src="newdress/kids/kid boys/eastern/be13.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=be14">
+                    <img src="newdress/kids/kid boys/eastern/be14.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+           
+      
+            <div class="item hidden" id="boys-east-item-15">
+              <div class="image-container">
+                <a href="item-detail.html?item=be15">
+                    <img src="newdress/kids/kid boys/eastern/be15.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+            <!-- More items with hidden class -->
+            <button id="viewMoreBtn" class="view-more-btn" data-target="boy-east-gallery">View More</button>
+          </div>
+        </section>
+
+        <h3 id="na">Boys Western</h3>
+
+        <section id="boys-west-section">
+          <div class="image-gallery" id="boys-west-gallery">
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw1">
+                  <img src="newdress/kids/kid boys/western/bw1.jpeg" alt="Clothing Image 1">
+                </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Lawn</h3>
+                <p>PKR 5000</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw2">
+                    <img src="newdress/kids/kid boys/western/bw2.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw3">
+                    <img src="newdress/kids/kid boys/western/bw3.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw4">
+                    <img src="newdress/kids/kid boys/western/bw4.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw5">
+                    <img src="newdress/kids/kid boys/western/bw5.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw6">
+                    <img src="newdress/kids/kid boys/western/bw6.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw7">
+                    <img src="newdress/kids/kid boys/western/bw7.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw8">
+                    <img src="newdress/kids/kid boys/western/bw8.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw9">
+                    <img src="newdress/kids/kid boys/western/bw9.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw10">
+                    <img src="newdress/kids/kid boys/western/bw10.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw11">
+                    <img src="newdress/kids/kid boys/western/bw11.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw12">
+                    <img src="newdress/kids/kid boys/western/bw12.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw13">
+                    <img src="newdress/kids/kid boys/western/bw13.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw14">
+                    <img src="newdress/kids/kid boys/western/bw14.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+           
+      
+            <div class="item hidden" id="boys-west-item-15">
+              <div class="image-container">
+                <a href="item-detail.html?item=bw15">
+                    <img src="newdress/kids/kid boys/western/bw15.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+            <!-- More items with hidden class -->
+            <button id="viewMoreBtn" class="view-more-btn" data-target="boys-west-gallery">View More</button>
+          </div>
+        </section>
+
+
+        <h3 id="na">Girls Eastern</h3>
+
+        <section id="girls-eastern-section">
+          <div class="image-gallery" id="girls-eastern-gallery">
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e1">
+                  <img src="newdress/kids/kid girls/eastern/e1.jpeg" alt="Clothing Image 1">
+                </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Lawn</h3>
+                <p>PKR 5000</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e2">
+                    <img src="newdress/kids/kid girls/eastern/e2.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e3">
+                    <img src="newdress/kids/kid girls/eastern/e3.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e4">
+                    <img src="newdress/kids/kid girls/eastern/e4.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e5">
+                    <img src="newdress/kids/kid girls/eastern/e5.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e6">
+                    <img src="newdress/kids/kid girls/eastern/e6.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e7">
+                    <img src="newdress/kids/kid girls/eastern/e7.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e8">
+                    <img src="newdress/kids/kid girls/eastern/e8.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e9">
+                    <img src="newdress/kids/kid girls/eastern/e9.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e10">
+                    <img src="newdress/kids/kid girls/eastern/e10.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e11">
+                    <img src="newdress/kids/kid girls/eastern/e11.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e12">
+                    <img src="newdress/kids/kid girls/eastern/e12.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e13">
+                    <img src="newdress/kids/kid girls/eastern/e13.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=e14">
+                    <img src="newdress/kids/kid girls/eastern/e14.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+           
+      
+            <div class="item hidden" id="girls-eastern-item-15">
+              <div class="image-container">
+                <a href="item-detail.html?item=e15">
+                    <img src="newdress/kids/kid girls/eastern/e15.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+            <!-- More items with hidden class -->
+            <button id="viewMoreBtn" class="view-more-btn" data-target="girls-eastern-gallery">View More</button>
+          </div>
+        </section>
+
+
+        <h3 id="na">Girls Western</h3>
+
+        <section id="girls-western-section">
+          <div class="image-gallery" id="girls-western-gallery">
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w1">
+                  <img src="newdress/kids/kid girls/western/w1.jpeg" alt="Clothing Image 1">
+                </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Lawn</h3>
+                <p>PKR 5000</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w2">
+                    <img src="newdress/kids/kid girls/western/w2.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w3">
+                    <img src="newdress/kids/kid girls/western/w3.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w4">
+                    <img src="newdress/kids/kid girls/western/w4.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w5">
+                    <img src="newdress/kids/kid girls/western/w5.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w6">
+                    <img src="newdress/kids/kid girls/western/w6.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w7">
+                    <img src="newdress/kids/kid girls/western/w7.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w8">
+                    <img src="newdress/kids/kid girls/western/w8.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w9">
+                    <img src="newdress/kids/kid girls/western/w9.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w10">
+                    <img src="newdress/kids/kid girls/western/w10.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w11">
+                    <img src="newdress/kids/kid girls/western/w11.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w12">
+                    <img src="newdress/kids/kid girls/western/w12.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w13">
+                    <img src="newdress/kids/kid girls/western/w13.jpg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+      
+      
+            <div class="item">
+              <div class="image-container">
+                <a href="item-detail.html?item=w14">
+                    <img src="newdress/kids/kid girls/western/w14.webp" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+      
+           
+      
+            <div class="item hidden" id="girls-western-item-15">
+              <div class="image-container">
+                <a href="item-detail.html?item=w15">
+                    <img src="newdress/kids/kid girls/western/w15.jpeg" alt="Clothing Image 1">
+                  </a>
+              </div>
+              <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+              </div>
+            </div>
+            <!-- More items with hidden class -->
+            <button id="viewMoreBtn" class="view-more-btn" data-target="girls-eastern-gallery">View More</button>
+          </div>
+        </section>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+          <div class="footer-column">
+              <h2 >Get in touch</h2>
+              <ul class="contact-info">
+                  <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                  <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                  <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+              </ul>
+              <ul class="footer-social-icons">
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                  <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                  <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h2 >Customer Support</h2>
+              <ul>
+                  <li><a href="shipping.html">Shipping And Handling</a></li>
+                  <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                  <li><a href="faqs.html">Help & FAQs</a></li>
+                  <li><a href="product-reviews.html">Reviews And Rating</a></li>
+                
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h2>Customer Queries</h2>
+              <ul>
+          
+                 
+                  <li><a href="term-and-services.html">Terms of Service</a></li>
+                  <li><a href="track_order.html">Track Your Order</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h2 >Quick Links</h2>
+              <ul>
+                  <li><a href="aboutus.html">About Us</a></li>
+                  <li><a href="Contact-us.html"> Contact Us</a></li>
+                
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h2 >Sign up and save</h2>
+              <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+              <div class="subscribe">
+                  <input type="email" placeholder="Your email address">
+                  <button>Subscribe</button>
+              </div>
+          </div>
+      </div>
+    </footer>
+    
+    
+    
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+    
+        viewMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetGalleryId = this.getAttribute('data-target');
+                const targetGallery = document.getElementById(targetGalleryId);
+                const hiddenItems = targetGallery.querySelectorAll('.item.hidden');
+                
+                let itemsToShow = 6;  // Adjust this number as needed
+    
+                hiddenItems.forEach((item, index) => {
+                    if (index < itemsToShow) {
+                        item.classList.remove('hidden');
+                    }
+                });
+    
+                // Update the remaining hidden items count
+                const remainingHiddenItems = targetGallery.querySelectorAll('.item.hidden');
+                if (remainingHiddenItems.length === 0) {
+                    this.style.display = 'none'; // Hide the button if there are no more items to show
+                }
+            });
+        });
+    });
+    
+    
+    
+    </script> 
+</body>
+</html>

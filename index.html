@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Function to update the cart badge
+        function updateCartBadge() {
+            let cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartBadge').innerText = cartCount;
+        }
+    
+        // Call update function on page load
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartBadge();
+    });
+
+    function updateCartBadge() {
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = cartCount;
+        }
+    }
+
+    </script>
+    
+
+</head>
+<body>
+    <div class="top"></div>
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="pew-removebg-preview.png" alt="logo">
+            <a href="shopping-cart-link.html">
+                <div class="cart-container">
+                    <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </div>
+            </a>
+            <div class="search-container">
+                <input class="newinput" type="text" id="searchInput" placeholder="I'm shopping for" oninput="performSearch()">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            <a href="#" id="accountIcon">
+                <img class="account" src="accountnew.gif" alt="account"/>
+            </a>
+        </div>
+    </div>
+    <div id="searchResults" class="results-container"></div>
+
+
+    <div class="nav">
+        <!-- navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+  
+                <!-- Women Dropdown -->
+                <li class="dropdown">
+                    <a href="women.html" class="dropbtn">Women</a>
+                    <div class="dropdown-content">
+                        <a href="women.html">Daily Wear </a>
+                        <a href="women.html">Formal</a>
+                        <div class="sub-dropdown">
+                            <a href="women-westernwear.html">Western Wear</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-westernwear.html">Jeans</a>
+                                <a href="women-westernwear.html">Blazer</a>
+                                <a href="women-westernwear.html">Formal Shirts</a>
+                             
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="women-eastern.html">Eastern</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-eastern.html">Gown</a>
+                                <a href="women-eastern.html">Sharara</a>
+                           
+                                <a href="women-eastern.html">Kurti</a>
+  
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <!-- Men Dropdown -->
+                <li class="dropdown">
+                    <a href="men.html" class="dropbtn">Men</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="men.html">Ethereal</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Kurtas</a>
+                        </div>
+                        <div class="sub-dropdown">
+                          <a href="men.html">Western</a>
+                      </div>
+  
+                      <div class="sub-dropdown">
+                          <a href="men.html">Active Wear</a>
+                      </div>
+                    </div>
+                </li>
+  
+                <!-- Kids Dropdown -->
+                <li class="dropdown">
+                    <a href="kids.html" class="dropbtn">Kids</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Girls</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                              
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Boys</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <li><a href="#new-arrival-section">New Arrival</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        </nav>
+    </div>
+  
+      
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Slider -->
+      <div class="slider">
+        <section class="main">
+          <img src="n1.jpg.webp" alt="first" height="610" width="600" class="slide active">
+          <img src="m1.jpg" alt="second" height="610" width="600" class="slide">
+          <img src="w7.jpg" alt="third" height="610" width="600" class="slide">
+          <img src="w5.jpg" alt="fourth" height="610" width="600" class="slide">
+          <img src="w6.jpg" alt="fifth" height="610" width="600" class="slide">
+          <img src="m2.jpg" alt="sith" height="610" width="600" class="slide">
+          <img src="w2.jpg" alt="seventh" height="610" width="600" class="slide">
+          <img src="m5.jpg" alt="eight" height="610" width="600" class="slide">
+        </section>
+      </div>
+  
+  <div class="intro">
+    <p>Welcome to <br> <b class="brand">Elegance <br>Emporium</b> <br> Where Fashion Meets <br> Quality
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-form" class="login-form">
+    <h2>Login</h2>
+    <br>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit" id="login">Login</button>
+        <button type="button" id="close-btn">Close</button>
+        
+        <p class="para">
+            <span class="spaced-span">New Customer?</span>
+            <span><a id="create-account-link" href="#create-account-container">Create your account here</a></span>
+        </p>
+        <p class="para one">
+            <span class="spaced-span">Forget Password?</span>
+            <span><a id="reset-password-link" href="#reset-password-form">Reset password here</a></span>
+        </p>
+    </form>
+</div>
+
+<!-- Account Creation Page HTML (hidden by default) -->
+<div id="create-account-container" class="create-account-container" style="display: none;">
+<h2>Create Your Account</h2>
+<form>
+    <label for="new-username">Username:</label>
+    <input type="text" id="new-username" name="new-username"><br><br>
+    <label for="first-name">First Name:</label> <!-- Corrected label for first name -->
+    <input type="text" id="first-name" name="first-name"><br><br> <!-- Corrected id for first name input -->
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="new-password">Password:</label>
+    <input type="password" id="new-password" name="new-password"><br><br>
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password"><br><br>
+    <button type="submit">Create Account</button>
+    
+    <button type="button" id="create-close-btn">Back To Login</button> <!-- Close button added -->
+</form>
+</div>
+
+<!-- Reset Password Form (hidden by default) -->
+<div id="reset-password-form" class="reset-password-form">
+<h2>Reset Your Password</h2>
+<form>
+    <label for="reset-email">Enter your email:</label>
+    <input type="email" id="reset-email" name="reset-email"><br><br>
+    <button type="submit" id="reset-close-btn1">Reset Password</button>
+    <p>Back To Login</p>
+    <button type="button" id="reset-close-btn">Login Here</button>
+</form>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay"></div>
+
+
+<section id="new-arrival-section">
+
+<h3 id="na">New Arrival</h3>
+
+
+<div class="image-gallery">
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww13pmessouri12000">
+          <img src="newdress/home/ww13pmessouri12000.pjg.webp" alt="Clothing Image 1">
+     </a>
+        </div>
+      <div class="details">
+          <h3>2 Piece Lawn</h3>
+          <p>PKR 5000</p>
+      </div>
+  </div>
+  <div class="item">
+    <a href="item-detail.html?item=ww2">
+      <div class="image-container">
+          <img src="newdress/home/ww2.jpg" alt="Clothing Image 2">
+      </a>
+      </div>
+      <div class="details">
+          <h3>3 Piece Lawn</h3>
+          <p>PKR 7000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww3">
+          <img src="newdress/home/ww3.jpeg" alt="Clothing Image 3">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww4">
+          <img src="newdress/home/ww4.jpg" alt="Clothing Image 4">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww5">
+          <img src="newdress/home/ww5.jpg" alt="Clothing Image 5">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww6griptopdyed">
+          <img src="newdress/home/ww6griptopdyed.jpg" alt="Clothing Image 6">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww7layeredtop">
+          <img src="newdress/home/ww7layeredtop.jpg" alt="Clothing Image 7">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww8">
+          <img src="newdress/home/ww8.jpg" alt="Clothing Image 8" >
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww9">
+          <img src="newdress/home/ww9.jpg" alt="Clothing Image 9">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww10">
+          <img src="newdress/home/ww10.jpg" alt="Clothing Image 10">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m1dobbykurta2">
+          <img src="newdress/home/m1dobbykurta2.jpg" alt="Clothing Image 11">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m2dobbykurta3">
+          <img src="newdress/home/m2dobbykurta3.jpg" alt="Clothing Image 12">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww11">
+          <img src="newdress/home/ww11.jpg" alt="Clothing Image 13">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m4">
+          <img src="newdress/home/m4.jpg" alt="Clothing Image 14">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m5">
+          <img src="newdress/home/m5.jpg" alt="Clothing Image 15">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=ww12">
+        
+          <img src="newdress/home/ww12.jpg" alt="Clothing Image 16">
+        </a>
+      </div>
+
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+
+  <div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww133">
+        <img src="newdress/home/ww133.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=m6">
+        <img src="newdress/home/m6.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww20embroideredorganzatop">
+        <img src="newdress/home/ww20embroideredorganzatop.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww14">
+        <img src="newdress/home/ww14.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww15">
+        <img src="newdress/home/ww15.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww16">
+        <img src="newdress/home/ww16.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=m7">
+        <img src="newdress/home/m7.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww17">
+        <img src="newdress/home/ww17.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=ww19">
+        <img src="newdress/home/ww19.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<button id="viewMoreBtn">View More</button>
+</div>
+</section>
+
+
+<!-- making image clickable to open in other page with details -->
+
+
+<script src="script.js"></script>  
+     
+
+
+
+<footer>
+  <div class="footer-container">
+      <div class="footer-column">
+          <h2 >Get in touch</h2>
+          <ul class="contact-info">
+              <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+              <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+              <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+          </ul>
+          <ul class="footer-social-icons">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h2 >Customer Support</h2>
+          <ul>
+              <li><a href="shipping.html">Shipping And Handling</a></li>
+              <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+              <li><a href="faqs.html">Help & FAQs</a></li>
+              <li><a href="product-reviews.html">Reviews And Rating</a></li>
+            
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h2>Customer Queries</h2>
+          <ul>
+      
+             
+              <li><a href="term-and-services.html">Terms of Service</a></li>
+              <li><a href="track_order.html">Track Your Order</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h2 >Quick Links</h2>
+          <ul>
+              <li><a href="aboutus.html">About Us</a></li>
+              <li><a href="Contact-us.html"> Contact Us</a></li>
+            
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h2 >Sign up and save</h2>
+          <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+          <div class="subscribe">
+              <input type="email" placeholder="Your email address">
+              <button>Subscribe</button>
+          </div>
+      </div>
+  </div>
+</footer>
+
+  
+  
+
+</body>
+</html>

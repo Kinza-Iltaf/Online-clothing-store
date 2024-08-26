@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>woman eastern</title>
+    
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="women-east.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="styles.css">
+   <script>
+    // Function to update the cart badge
+    function updateCartBadge() {
+        let cartCount = localStorage.getItem('cartCount') || 0;
+        document.getElementById('cartBadge').innerText = cartCount;
+    }
+
+    // Call update function on page load
+  
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartBadge();
+});
+
+function updateCartBadge() {
+    let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+    const badge = document.getElementById('cartBadge');
+    if (badge) {
+        badge.innerText = cartCount;
+    }
+}
+
+</script>
+</head>
+<body>
+
+  <div class="top"></div>
+  <div class="header">
+    <div class="container">
+        <img class="logo" src="pew-removebg-preview.png" alt="logo">
+        <a href="shopping-cart-link.html">
+            <div class="cart-container">
+                <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                <span id="cartBadge" class="cart-badge">0</span>
+            </div>
+        </a>
+        <a href="search-page-link.html">
+            <img class="search" src="icons8-search.gif" alt="search"/>
+        </a>
+        <input class="newinput" type="text" placeholder="I'm shopping for">
+        <a href="index.html" id="accountIcon">
+            <img class="account" src="accountnew.gif" alt="account"/>
+        </a>
+    </div>
+</div>
+
+    <div class="nav">
+        <!-- navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+  
+                <!-- Women Dropdown -->
+                <li class="dropdown">
+                    <a href="women.html" class="dropbtn">Women</a>
+                    <div class="dropdown-content">
+                        <a href="women.html">Daily Wear </a>
+                        <a href="women.html">Formal</a>
+                        <div class="sub-dropdown">
+                            <a href="women-westernwear.html">Western Wear</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-westernwear.html">Jeans</a>
+                                <a href="women-westernwear.html">Blazer</a>
+                                <a href="women-westernwear.html">Formal Shirts</a>
+                             
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="women-eastern.html">Eastern</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-eastern.html">Gown</a>
+                                <a href="women-eastern.html">Sharara</a>
+                           
+                                <a href="women-eastern.html">Kurti</a>
+  
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <!-- Men Dropdown -->
+                <li class="dropdown">
+                    <a href="men.html" class="dropbtn">Men</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="men.html">Ethereal</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Kurtas</a>
+                        </div>
+                        <div class="sub-dropdown">
+                          <a href="men.html">Western</a>
+                      </div>
+  
+                      <div class="sub-dropdown">
+                          <a href="men.html">Active Wear</a>
+                      </div>
+                    </div>
+                </li>
+  
+                <!-- Kids Dropdown -->
+                <li class="dropdown">
+                    <a href="kids.html" class="dropbtn">Kids</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Girls</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                              
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Boys</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+  
+                <li><a href="index.html">New Arrival</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+  
+
+  <img id="eastwo" src="newdress/eastern/main image of page.jpg" alt="main image">
+
+
+  <h3 id="na">Eastern's categories</h3>
+  <div class="eastwo-category-container">
+      <div class="eastwo-category-item">
+          <a href="#kurti-section">
+            <img src="newdress/eastern/kurtis/kurti cat.jpg" alt="kuris">
+            <p>Kurtis</p>
+          </a>
+      </div>
+      <div class="eastwo-category-item">
+          <a href="#gharara-section">
+            <img src="newdress/eastern/gharara/gharara cat.jpg" alt="gharara">
+            <p>Gharara</p>
+          </a>
+      </div>
+
+      <div class="eastwo-category-item">
+          <a href="#gown-section">
+            <img src="newdress/eastern/gowns/gown cat.jpg" alt="gowns">
+            <p>Gowns</p>
+          </a>
+      </div>
+  </div>
+
+
+
+  <!-- kurti section -->
+
+
+  <h3 id="na">Kurtis</h3>
+
+  <section id="kurti-section">
+    <div class="image-gallery" id="kurti-gallery">
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k1">
+            <img src="newdress/eastern/kurtis/k1.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Lawn</h3>
+          <p>PKR 5000</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k2">
+            <img src="newdress/eastern/kurtis/k2.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k3">
+            <img src="newdress/eastern/kurtis/k3.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k4">
+            <img src="newdress/eastern/kurtis/k4.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k5">
+            <img src="newdress/eastern/kurtis/k5.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k6">
+            <img src="newdress/eastern/kurtis/k6.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k7">
+            <img src="newdress/eastern/kurtis/k7.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k8">
+            <img src="newdress/eastern/kurtis/k8.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k9">
+            <img src="newdress/eastern/kurtis/k9.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k10">
+            <img src="newdress/eastern/kurtis/k10.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k11">
+            <img src="newdress/eastern/kurtis/k11.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k12">
+            <img src="newdress/eastern/kurtis/k12.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k13">
+            <img src="newdress/eastern/kurtis/k13.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=k14">
+            <img src="newdress/eastern/kurtis/k14.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item hidden" id="kurti-item-15">
+        <div class="image-container">
+          <a href="item-detail.html?item=k15">
+            <img src="newdress/eastern/kurtis/k15.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item hidden" id="kurti-item-16">
+        <div class="image-container">
+          <a href="item-detail.html?item=k16">
+            <img src="newdress/eastern/kurtis/k16.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+      <div class="item hidden" id="kurti-item-17">
+        <div class="image-container">
+          <a href="item-detail.html?item=k17">
+            <img src="newdress/eastern/kurtis/k17.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item hidden" id="kurti-item-18">
+        <div class="image-container">
+          <a href="item-detail.html?item=k18">
+            <img src="newdress/eastern/kurtis/k18.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item hidden" id="kurti-item-19">
+        <div class="image-container">
+          <a href="item-detail.html?item=k19">
+            <img src="newdress/eastern/kurtis/k19.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item hidden" id="kurti-item-20">
+        <div class="image-container">
+          <a href="item-detail.html?item=k20">
+            <img src="newdress/eastern/kurtis/k20.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <button id="viewMoreBtn" class="view-more-btn" data-target="kurti-gallery">View More</button>
+    </div>
+  </section>
+
+
+
+  <!-- gharara section -->
+
+
+
+
+
+  <h3 id="na">Gharara</h3>
+
+  <section id="gharara-section">
+    <div class="image-gallery" id="gharara-gallery">
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh0">
+            <img src="newdress/eastern/gharara/gh0.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 5000</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh1">
+            <img src="newdress/eastern/gharara/gh1.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 21000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh2">
+            <img src="newdress/eastern/gharara/gh2.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 9000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh3">
+            <img src="newdress/eastern/gharara/gh3.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 23000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh4">
+            <img src="newdress/eastern/gharara/gh4.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 33000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh5">
+            <img src="newdress/eastern/gharara/gh5.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 11000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh6">
+            <img src="newdress/eastern/gharara/gh6.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 69000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh7">
+            <img src="newdress/eastern/gharara/gh7.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 12000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh8">
+            <img src="newdress/eastern/gharara/gh8.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 35000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh9">
+            <img src="newdress/eastern/gharara/gh9.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 67000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh10">
+            <img src="newdress/eastern/gharara/gh10.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 16000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh11">
+            <img src="newdress/eastern/gharara/gh11.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 7000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh12">
+            <img src="newdress/eastern/gharara/gh12.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 3000</p>
+        </div>
+      </div>
+
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh13">
+            <img src="newdress/eastern/gharara/gh13.jpeg" alt="Clothing Image 3">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 3000</p>
+        </div>
+      </div>
+
+
+      <div class="item " >
+        <div class="image-container">
+          <a href="item-detail.html?item=gh14">
+            <img src="newdress/eastern/gharara/gh14.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 5500</p>
+        </div>
+      </div>
+
+
+      <div class="item ">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh15">
+            <img src="newdress/eastern/gharara/gh15.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 7000</p>
+        </div>
+      </div>
+
+
+
+      <div class="item ">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh16">
+            <img src="newdress/eastern/gharara/gh16.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh18">
+            <img src="newdress/eastern/gharara/gh18.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+     
+     
+
+      <div class="item ">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh22">
+            <img src="newdress/eastern/gharara/gh22.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+    
+
+      <div class="item hidden" id="gharara-item-12">
+        <div class="image-container">
+          <a href="item-detail.html?item=gh12">
+            <img src="newdress/eastern/gharara/gh12.jpeg" alt="Clothing Image 4">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+      <!-- More items with hidden class -->
+      <button id="viewMoreBtn" class="view-more-btn" data-target="gharara-gallery">View More</button>
+    </div>
+  </section>
+
+
+
+  <h3 id="na">Gowns</h3>
+
+  <section id="gown-section">
+    <div class="image-gallery" id="gown-gallery">
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g1">
+            <img src="newdress/eastern/gowns/g1.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece</h3>
+          <p>PKR 5000</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g2">
+            <img src="newdress/eastern/gowns/g2.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g3">
+            <img src="newdress/eastern/gowns/g3.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g4">
+            <img src="newdress/eastern/gowns/g4.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g5">
+            <img src="newdress/eastern/gowns/g5.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece</h3>
+          <p>PKR 5300</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g6">
+            <img src="newdress/eastern/gowns/g6.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece Cotton</h3>
+          <p>PKR 6800</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g7">
+            <img src="newdress/eastern/gowns/g7.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece Cotton</h3>
+          <p>PKR 5000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g8">
+            <img src="newdress/eastern/gowns/g8.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 5400</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g9">
+            <img src="newdress/eastern/gowns/g9.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece Cotton</h3>
+          <p>PKR 6000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g10">
+            <img src="newdress/eastern/gowns/g10.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 8000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g11">
+            <img src="newdress/eastern/gowns/g11.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 12000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g12">
+            <img src="newdress/eastern/gowns/g12.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece </h3>
+          <p>PKR 7000</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g13">
+            <img src="newdress/eastern/gowns/g13.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece </h3>
+          <p>PKR 4000</p>
+        </div>
+      </div>
+
+
+
+      <div class="item">
+        <div class="image-container">
+          <a href="item-detail.html?item=g14">
+            <img src="newdress/eastern/gowns/g14.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>3 Piece </h3>
+          <p>PKR 5000</p>
+        </div>
+      </div>
+
+     
+
+      <div class="item hidden" id="gown-item-15">
+        <div class="image-container">
+          <a href="item-detail.html?item=g15">
+            <img src="newdress/eastern/gowns/g15.jpeg" alt="Clothing Image 1">
+          </a>
+        </div>
+        <div class="details">
+          <h3>2 Piece</h3>
+          <p>PKR 4000</p>
+        </div>
+      </div>
+      <!-- More items with hidden class -->
+      <button id="viewMoreBtn" class="view-more-btn" data-target="gown-gallery">View More</button>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h2 >Get in touch</h2>
+            <ul class="contact-info">
+                <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+            </ul>
+            <ul class="footer-social-icons">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h2 >Customer Support</h2>
+            <ul>
+                <li><a href="shipping.html">Shipping And Handling</a></li>
+                <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                <li><a href="faqs.html">Help & FAQs</a></li>
+                <li><a href="product-reviews.html">Reviews And Rating</a></li>
+              
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h2>Customer Queries</h2>
+            <ul>
+        
+               
+                <li><a href="term-and-services.html">Terms of Service</a></li>
+                <li><a href="track_order.html">Track Your Order</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h2 >Quick Links</h2>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="Contact-us.html"> Contact Us</a></li>
+              
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h2 >Sign up and save</h2>
+            <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+            <div class="subscribe">
+                <input type="email" placeholder="Your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+  </footer>
+  
+
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+
+    viewMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetGalleryId = this.getAttribute('data-target');
+            const targetGallery = document.getElementById(targetGalleryId);
+            const hiddenItems = targetGallery.querySelectorAll('.item.hidden');
+            
+            let itemsToShow = 6;  // Adjust this number as needed
+
+            hiddenItems.forEach((item, index) => {
+                if (index < itemsToShow) {
+                    item.classList.remove('hidden');
+                }
+            });
+
+            // Update the remaining hidden items count
+            const remainingHiddenItems = targetGallery.querySelectorAll('.item.hidden');
+            if (remainingHiddenItems.length === 0) {
+                this.style.display = 'none'; // Hide the button if there are no more items to show
+            }
+        });
+    });
+});
+
+
+
+</script> 
+
+
+
+<!-- <script >
+    
+      
+
+
+
+//         document.getElementById('viewMoreBtn').addEventListener('click', function() {
+//     const target = this.getAttribute('data-target');
+//     const gallery = document.getElementById(target);
+//     const hiddenItems = gallery.querySelectorAll('.item.hidden');
+//     hiddenItems.forEach((item, index) => {
+//       if (index < 5) {
+//         item.classList.remove('hidden');
+//       }
+//     });
+//     if (hiddenItems.length <= 5) {
+//       this.style.display = 'none';
+//     }
+//   });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+
+    viewMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetGalleryId = this.getAttribute('data-target');
+            const targetGallery = document.getElementById(targetGalleryId);
+            const hiddenItems = targetGallery.querySelectorAll('.item.hidden');
+            
+            let itemsToShow = 6;  // Adjust this number as needed
+
+            hiddenItems.forEach((item, index) => {
+                if (index < itemsToShow) {
+                    item.classList.remove('hidden');
+                }
+            });
+
+            if (hiddenItems.length <= itemsToShow) {
+                this.style.display = 'none'; // Hide the button if there are no more items to show
+            }
+        });
+    });
+});
+
+   
+</script> -->
+</body>
+</html>

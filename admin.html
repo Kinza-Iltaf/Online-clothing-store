@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Moderation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .admin-header {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .review-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .review-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .review-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .button {
+            padding: 5px 10px;
+            margin: 5px;
+            text-align: center;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button.delete {
+            background-color: #dc3545;
+        }
+
+        .button.approve {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Review Moderation</h1>
+        </div>
+
+        <div id="reviewsList">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadReviews();
+        });
+
+        function loadReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+            reviewsList.innerHTML = ''; // Clear previous content
+
+            reviews.forEach((review, index) => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review-item';
+                
+                reviewElement.innerHTML = `
+                    <div>
+                        <h3>${review.product}</h3>
+                        <p>Rating: ${review.rating}</p>
+                        <p>${review.review}</p>
+                    </div>
+                    <div>
+                        <button class="button approve" onclick="approveReview(${index})">Approve</button>
+                        <button class="button delete" onclick="deleteReview(${index})">Delete</button>
+                    </div>
+                `;
+
+                reviewsList.appendChild(reviewElement);
+            });
+        }
+
+        function approveReview(index) {
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews[index].approved = true;
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            loadReviews();
+        }
+
+        function deleteReview(index) {
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.splice(index, 1);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            loadReviews();
+        }
+    </script>
+</body>
+</html>

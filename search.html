@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .results-container {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .result-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()">
+        </div>
+        <div id="resultsContainer" class="results-container">
+            <!-- Search results will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample product data
+        const products = [
+            { name: 'Blazer', description: 'A stylish blazer for formal occasions.', price: 'PKR 5000' },
+            { name: 'Jeans', description: 'Comfortable jeans for casual wear.', price: 'PKR 2000' },
+            { name: 'T-shirt', description: 'A cool t-shirt for everyday use.', price: 'PKR 1000' },
+            // Add more products as needed
+        ];
+
+        function searchProducts() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchInput) ||
+                product.description.toLowerCase().includes(searchInput)
+            );
+
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            if (filteredProducts.length === 0) {
+                resultsContainer.innerHTML = '<p>No products found.</p>';
+                return;
+            }
+
+            filteredProducts.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                resultItem.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>Price: ${product.price}</p>
+                `;
+
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesaccount.css">
+    <title>Account</title>
+</head>
+<body>
+     <!-- Login Form -->
+  <div id="login-form" class="login-form">
+    <h2>Login</h2>
+    <br>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit" id="login">Login</button>
+        <button type="button" id="close-btn">Close</button>
+        
+        <p class="para">
+            <span class="spaced-span">New Customer?</span>
+            <span><a id="create-account-link" href="#create-account-container">Create your account here</a></span>
+        </p>
+        <p class="para one">
+            <span class="spaced-span">Forget Password?</span>
+            <span><a id="reset-password-link" href="#reset-password-form">Reset password here</a></span>
+        </p>
+    </form>
+</div>
+
+<!-- Account Creation Page HTML (hidden by default) -->
+<div id="create-account-container" class="create-account-container" style="display: none;">
+<h2>Create Your Account</h2>
+<form>
+    <label for="new-username">Username:</label>
+    <input type="text" id="new-username" name="new-username"><br><br>
+    <label for="first-name">First Name:</label> <!-- Corrected label for first name -->
+    <input type="text" id="first-name" name="first-name"><br><br> <!-- Corrected id for first name input -->
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="new-password">Password:</label>
+    <input type="password" id="new-password" name="new-password"><br><br>
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password"><br><br>
+    <button type="submit">Create Account</button>
+    
+    <button type="button" id="create-close-btn">Back To Login</button> <!-- Close button added -->
+</form>
+</div>
+
+
+<!-- Reset Password Form (hidden by default) -->
+<div id="reset-password-form" class="reset-password-form">
+<h2>Reset Your Password</h2>
+<form>
+    <label for="reset-email">Enter your email:</label>
+    <input type="email" id="reset-email" name="reset-email"><br><br>
+    <button type="submit" id="reset-close-btn1">Reset Password</button>
+    <p>Back To Login</p>
+    <button type="button" id="reset-close-btn">Login Here</button>
+</form>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay"></div>
+
+<script src="account.js"></script>  
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* sale.css */
+.sale-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    height: 500px; /* Fixed height for the slider */
+    margin: auto;
+    overflow: hidden;
+}
+
+.sale-slide {
+    width: 100%;
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensure image covers the container without distortion */
+    display: none; /* Hide images by default */
+}
+
+.sale-slide.active {
+    display: block; /* Show active image */
+}
+
+
+
+
+
+.sale-category-container {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    gap: -30px; /* Set horizontal gap between items */
+}
+
+.sale-category-item {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center align children horizontally */
+    margin-top: 10px; /* Space above the items */
+    margin-bottom: 10px; /* Space below the items */
+    text-align: center; /* Center the text below the images */
+}
+
+.sale-category-item img {
+    width: 200px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.sale-category-item p {
+    margin: 5px 0 0; /* Add space above the text */
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sale-category-item a {
+    display: block;
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Adjust text color as needed */
+}

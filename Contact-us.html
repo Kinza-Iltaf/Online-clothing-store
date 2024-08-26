@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Elegance Emporium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Function to update the cart badge
+        function updateCartBadge() {
+            let cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartBadge').innerText = cartCount;
+        }
+    
+        // Call update function on page load
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartBadge();
+    });
+
+    function updateCartBadge() {
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = cartCount;
+        }
+    }
+
+    </script>
+    <style>
+
+.unique-contact-container {
+  
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    height: 500px;
+   
+}
+footer{
+    margin-top: 190px;
+}
+
+.unique-contact-container h1 {
+    margin-bottom: 20px;
+}
+
+.unique-contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.unique-contact-form,
+.unique-contact-info {
+    width: 48%;
+   
+}
+
+.unique-contact-form form {
+    display: flex;
+    flex-direction: column;
+    background-color:#F6F6F8;
+    height: 520px;
+    border-radius: 5px;
+    border: 5px solid black;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 5px;
+   
+    padding: 10px;
+}
+
+.unique-contact-form label {
+    background-color: #F6F6F8;
+    text-align: left; /* Ensures the text inside the label is aligned to the left */
+    display: block;  /* Makes the label take up the full width */
+    margin-bottom: 5px; /* Adds some space below the label */
+    font-weight: bold; /* Keeps the labels bold */
+}
+
+
+.unique-contact-form input,
+.unique-contact-form textarea {
+    background-color: #F6F6F8;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 450px;
+}
+
+.unique-contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 450px;
+}
+
+.unique-contact-form button:hover {
+    background-color: #444;
+}
+.unique-contact-form input:hover{
+    background-color: #e2e2e7;
+}
+
+.unique-contact-info {
+    text-align: left;
+    background-color: #F6F6F8;
+    padding: 10px;
+    border-radius: 10px;
+    height: 520px;
+    border: 5px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 45px;
+    margin-bottom: 31px;
+   
+    padding-bottom: 5px;
+}
+
+.unique-contact-info h2 {
+    margin-bottom: 0px;
+}
+
+.unique-contact-info p {
+    margin: 10px 0;
+}
+
+
+
+
+#twoca{
+    font-size: 23px;
+            background-color: black;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height: 50px;
+           width: 100%;
+            text-align: center;
+            padding-top:  10px;
+            padding-bottom: 10px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+}
+
+#twocu{
+    background-color:#F6F6F8;
+    margin-top: 5px;
+}
+#paracu{
+    background-color:#F6F6F8; 
+    margin-bottom: 30px;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="top"></div>
+    <div class="header">
+      <div class="container">
+          <img class="logo" src="pew-removebg-preview.png" alt="logo">
+          <a href="shopping-cart-link.html">
+              <div class="cart-container">
+                  <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                  <span id="cartBadge" class="cart-badge">0</span>
+              </div>
+          </a>
+          <a href="search-page-link.html">
+              <img class="search" src="icons8-search.gif" alt="search"/>
+          </a>
+          <input class="newinput" type="text" placeholder="I'm shopping for">
+          <a href="index.html" id="accountIcon">
+              <img class="account" src="accountnew.gif" alt="account"/>
+          </a>
+      </div>
+  </div>
+  
+      <div class="nav">
+          <!-- navigation -->
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+    
+                  <!-- Women Dropdown -->
+                  <li class="dropdown">
+                      <a href="women.html" class="dropbtn">Women</a>
+                      <div class="dropdown-content">
+                          <a href="women.html">Daily Wear </a>
+                          <a href="women.html">Formal</a>
+                          <div class="sub-dropdown">
+                              <a href="women-westernwear.html">Western Wear</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-westernwear.html">Jeans</a>
+                                  <a href="women-westernwear.html">Blazer</a>
+                                  <a href="women-westernwear.html">Formal Shirts</a>
+                               
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="women-eastern.html">Eastern</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-eastern.html">Gown</a>
+                                  <a href="women-eastern.html">Sharara</a>
+                             
+                                  <a href="women-eastern.html">Kurti</a>
+    
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <!-- Men Dropdown -->
+                  <li class="dropdown">
+                      <a href="men.html" class="dropbtn">Men</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="men.html">Ethereal</a>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="men.html">Kurtas</a>
+                          </div>
+                          <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+    
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                      </div>
+                  </li>
+    
+                  <!-- Kids Dropdown -->
+                  <li class="dropdown">
+                      <a href="kids.html" class="dropbtn">Kids</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Girls</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                                
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Boys</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <li><a href="index.html">New Arrival</a></li>
+                  <li><a href="user-dashboard.html">Dashboard</a></li>
+                  <li><a href="Sale.html">Sale</a></li>
+              </ul>
+          </nav>
+      </div>
+
+    <h2  id="twoca">Contact Us</h2>
+    <div class="unique-contact-container">
+       
+        <p>Feel free to reach out to us with any questions or concerns you may have.</p>
+
+        <div class="unique-contact-content">
+            
+            <div class="unique-contact-form">
+                
+                <form action="#" method="post">
+                    <h2 id="twocu">CONTACT INFORMATION</h2>
+                    <hr>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="unique-contact-info">
+                <h2 id="twocu">CONTACT INFORMATION</h2>
+                <p id="paracu">For queries and concerns, please call us at <b id="twocu"> (+92) 304 000 0000 </b>or send an email to <b id="twocu"> info@eleganceemporium.com</b></p>
+                <p id="paracu"><b id="twocu">Call Timings:</b></p>
+                <p id="paracu">Monday till Saturday, 9:00 AM till 6:00 PM PST (lunch/prayer break from 1:00 PM till 2:00 PM PST and 1:00 PM till 3:00 PM PST on Fridays)</p>
+                <p id="paracu"><b id="twocu">Retail Outlets Complaints:</b></p>
+                <p id="paracu">For any complaints regarding to our retail outlets, please email directly at: <b id="twocu"> info@eleganceemporium.com </b> call at: <b id="twocu"> 92 304 000 00000 </b>. “Monday till Saturday, 9 AM till 6 PM - PST”</p>
+                <p  id="paracu"><b id="twocu">For Bulk/International:</b></p>
+                <p id="twocu">Please call us at <b id="twocu"> +92 000 0000 </b> or send an email to <b id="twocu"> info@eleganceemporium.com </b> </p>
+                <p id="paracu"><b id="twocu">For Franchise:</b></p>
+                <p id="paracu">Please call us at <b id="twocu"> +92 000 000000</b> or send an email to  <b id="twocu">info@eleganceemporium.com</b></p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h2 >Get in touch</h2>
+                <ul class="contact-info">
+                    <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                    <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                    <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+                </ul>
+                <ul class="footer-social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Customer Support</h2>
+                <ul>
+                    <li><a href="shipping.html">Shipping And Handling</a></li>
+                    <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                    <li><a href="faqs.html">Help & FAQs</a></li>
+                    <li><a href="product-reviews.html">Reviews And Rating</a></li>
+                  
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2>Customer Queries</h2>
+                <ul>
+            
+                   
+                    <li><a href="term-and-services.html">Terms of Service</a></li>
+                    <li><a href="track_order.html">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Quick Links</h2>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="Contact-us.html"> Contact Us</a></li>
+                  
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Sign up and save</h2>
+                <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                <div class="subscribe">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+      </footer>
+</body>
+</html>

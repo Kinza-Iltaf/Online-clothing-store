@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Detail</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+
+
+/* Back to Main Page Button Styles */
+/* Back Button Styles */
+.back-button {
+    margin-top: 10px; /* Adjust spacing as needed */
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Back Button Styles */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #101011; /* Bootstrap primary color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 10px;
+}
+
+.back-btn:hover {
+    background-color: #3d3e3f; /* Darker shade of blue for hover effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.back-btn:focus {
+    outline: none;
+}
+
+         /* Add styles for the product detail page */
+         .product-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .product-info {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .product-info img {
+            max-width: 300px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .product-info .details {
+            flex: 1;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+        }
+
+        .action-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #040404;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+    </style>
+
+   
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="shopping-cart-link.html">
+                <div class="cart-container">
+                    <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+<!-- 
+
+  adding review  -->
+
+  <!-- <div class="product-container">
+    <div class="product-info">
+        <img id="productImage" src="" alt="Product Image">
+        <div class="details">
+            <h1 id="productName">Product Name</h1>
+            <p id="productDescription">Description of the product goes here.</p>
+           Additional product details 
+        </div>
+    </div> -->
+
+    <div class="action-buttons">
+        <button id="viewReviewsBtn">View Reviews</button>
+        <button id="giveReviewBtn">Give Review</button>
+    </div>
+</div>
+
+<!-- Reviews Modal -->
+<!-- Reviews Modal -->
+<div id="reviewsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('reviewsModal')">&times;</span>
+        <button class="back-btn" onclick="goBack()">Back</button>
+        <h2>Reviews</h2>
+        <div id="reviewsContainer"></div>
+    </div>
+</div>
+
+<!-- Review Modal -->
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('reviewModal')">&times;</span>
+        <button class="back-btn" onclick="goBack()">Back</button>
+        <h2>Submit Review</h2>
+        <form id="reviewForm">
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+            <label for="reviewText">Review:</label>
+            <textarea id="reviewText" name="reviewText" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+  
+
+   
+    <div id="toast" class="toast">Item added to cart!</div>  
+  
+    <div class="item-detail">
+        <div class="image-container">
+            <img id="itemImage" src="" alt="Item Image">
+        </div>
+        <div class="item-details">
+            <div class="details-right">
+                <h2 id="itemTitle">Suit Name</h2>
+                <p id="itemPrice">PKR 6000</p>
+
+                <div class="size-options">
+                    <h3>Size</h3>
+                    <div class="size-buttons">
+                        <button onclick="selectSize(this)">XS</button>
+                        <button onclick="selectSize(this)">S</button>
+                        <button onclick="selectSize(this)">M</button>
+                        <button onclick="selectSize(this)">L</button>
+                    </div>
+                </div>
+
+                <div class="quantity">
+                    <h3>Quantity</h3>
+                    <div class="quantity-buttons">
+                        <button onclick="decreaseQuantity()">-</button>
+                        <span id="itemQuantity">1</span>
+                        <button onclick="increaseQuantity()">+</button>
+                    </div>
+                </div>
+
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+
+                   <!-- Back button -->
+             <!-- Back button with unique id -->
+             <button id="productBackButton" class="back-button">Back</button>
+               
+
+            </div>
+        </div>
+    </div>
+
+  
+    
+
+    <script>
+        // Retrieve item details from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const item = urlParams.get('item');
+
+        // Sample data (replace with actual data fetching logic)
+        const items = {
+            ww13pmessouri12000: {
+                image: 'newdress/home/ww13pmessouri12000.pjg.webp',
+                title: 'Three piece suit',
+                price: 'PKR 8000',
+            },
+
+            ww2:{
+                image:   'newdress/home/ww2.jpg',
+                title: '3 piece suits for summer',
+                price: 'PKR 5500',
+            },
+
+            ww3:{
+                image:   'newdress/home/ww3.jpeg',
+                title: 'lawn suit',
+                price: 'PKR 4500',
+            },
+
+           ww4:{
+                image:   'newdress/home/ww4.jpg',
+                title: 'Shiffon suit',
+                price: 'PKR 5600',
+            },
+
+            ww5:{
+                image:   'newdress/home/ww5.jpg',
+                title: '3 pc suit for Summer ',
+                price: 'PKR 6000',
+            },
+
+            ww6griptopdyed:{
+                image:   'newdress/home/ww6griptopdyed.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww7layeredtop:{
+                image:   'newdress/home/ww7layeredtop.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww8:{
+                image:   'newdress/home/ww8.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww9:{
+                image:   'newdress/home/ww9.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww10:{
+                image:   'newdress/home/ww10.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m1dobbykurta2:{
+                image:   'newdress/home/m1dobbykurta2.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m2dobbykurta3:{
+                image:   'newdress/home/m2dobbykurta3.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww11:{
+                image:   'newdress/home/ww11.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m4:{
+                image:   'newdress/home/m4.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m5:{
+                image:   'newdress/home/m5.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww12:{
+                image:   'newdress/home/ww12.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww30:{
+                image:   'newdress/women/ww30.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m6:{
+                image:   'newdress/home/m6.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww20embroideredorganzatop:{
+                image:   'newdress/home/ww20embroideredorganzatop.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww14:{
+                image:   'newdress/home/ww14.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww15:{
+                image:   'newdress/home/ww15.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww16:{
+                image:   'newdress/home/ww16.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            m7:{
+                image:   'newdress/home/m7.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ww17:{
+                image:   'newdress/home/ww17.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b1:{
+                image:   'newdress/western/blazers/b1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            b2:{
+                image:   'newdress/western/blazers/b2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b3:{
+                image:   'newdress/western/blazers/b3.jpeg',
+                title: 'blazer',
+                price: 'PKR 4000',
+            },
+
+            b4:{
+                image:   'newdress/western/blazers/b4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b5:{
+                image:   'newdress/western/blazers/b5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b6:{
+                image:   'newdress/western/blazers/b6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b7:{
+                image:   'newdress/western/blazers/b7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b8:{
+                image:   'newdress/western/blazers/b8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b9:{
+                image:   'newdress/western/blazers/b9.jpeg',
+                title: 'blazer',
+                price: 'PKR 7000',
+            },
+
+            b10:{
+                image:   'newdress/western/blazers/b10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b11:{
+                image:   'newdress/western/blazers/b11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b12:{
+                image:   'newdress/western/blazers/b12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b13:{
+                image:   'newdress/western/blazers/b13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b14:{
+                image:   'newdress/western/blazers/b14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b15:{
+                image:   'newdress/western/blazers/b15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b16:{
+                image:   'newdress/western/blazers/b16.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b17:{
+                image:   'newdress/western/blazers/b17.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b1:{
+                image:   'newdress/western/blazers/b1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b10:{
+                image:   'newdress/western/blazers/b10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            b7:{
+                image:   'newdress/western/blazers/b7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j1:{
+                image:   'newdress/western/jeans/j1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j2:{
+                image:   'newdress/western/jeans/j2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j3:{
+                image:   'newdress/western/jeans/j3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j4:{
+                image:   'newdress/western/jeans/j4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j5:{
+                image:   'newdress/western/jeans/j5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j6:{
+                image:   'newdress/western/jeans/j6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j17:{
+                image:   'newdress/western/jeans/j7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j8:{
+                image:   'newdress/western/jeans/j8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j9:{
+                image:   'newdress/western/jeans/j9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j10:{
+                image:   'newdress/western/jeans/j10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j11:{
+                image:   'newdress/western/jeans/j11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j12:{
+                image:   'newdress/western/jeans/j12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j13:{
+                image:   'newdress/western/jeans/j13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j14:{
+                image:   'newdress/western/jeans/j14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j15:{
+                image:   'newdress/western/jeans/j15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j16:{
+                image:   'newdress/western/jeans/j16.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j17:{
+                image:   'newdress/western/jeans/j17.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j18:{
+                image:   'newdress/western/jeans/j18.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j19:{
+                image:   'newdress/western/jeans/j19.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j20:{
+                image:   'newdress/western/jeans/j20.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j21:{
+                image:   'newdress/western/jeans/j21.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j22:{
+                image:   'newdress/western/jeans/j22.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j23:{
+                image:   'newdress/western/jeans/j23.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j24:{
+                image:   'newdress/western/jeans/j24.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            j25:{
+                image:   'newdress/western/jeans/j25.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh1:{
+                image:   'newdress/western/shirts/sh1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh2:{
+                image:   'newdress/western/shirts/sh2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh3:{
+                image:   'newdress/western/shirts/sh3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh4:{
+                image:   'newdress/western/shirts/sh4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh5:{
+                image:   'newdress/western/shirts/sh5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh6:{
+                image:   'newdress/western/shirts/sh6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh7:{
+                image:   'newdress/western/shirts/sh7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh8:{
+                image:   'newdress/western/shirts/sh8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh9:{
+                image:   'newdress/western/shirts/sh9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh10:{
+                image:   'newdress/western/shirts/sh10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh11:{
+                image:   'newdress/western/shirts/sh11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh12:{
+                image:   'newdress/western/shirts/sh12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh13:{
+                image:   'newdress/western/shirts/sh13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh14:{
+                image:   'newdress/western/shirts/sh14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh15:{
+                image:   'newdress/western/shirts/sh15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+           sh16 :{
+                image:   'newdress/western/shirts/sh16.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh17:{
+                image:   'newdress/western/shirts/sh17.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh18:{
+                image:   'newdress/western/shirts/sh18.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh19:{
+                image:   'newdress/western/shirts/sh19.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh20:{
+                image:   'newdress/western/shirts/sh20.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh21:{
+                image:   'newdress/western/shirts/sh21.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh22:{
+                image:   'newdress/western/shirts/sh22.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh23:{
+                image:   'newdress/western/shirts/sh23.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh24:{
+                image:   'newdress/western/shirts/sh24.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            sh25:{
+                image:   'newdress/western/shirts/sh25.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            k1:{
+                image:   'newdress/eastern/kurtis/k1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            k2:{
+                image:   'newdress/eastern/kurtis/k2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k1:{
+                image:   'newdress/eastern/kurtis/k1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k3:{
+                image:   'newdress/eastern/kurtis/k3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k4:{
+                image:   'newdress/eastern/kurtis/k4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k5:{
+                image:   'newdress/eastern/kurtis/k5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k6:{
+                image:   'newdress/eastern/kurtis/k6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k7:{
+                image:   'newdress/eastern/kurtis/k7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k8:{
+                image:   'newdress/eastern/kurtis/k8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k9:{
+                image:   'newdress/eastern/kurtis/k9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k10:{
+                image:   'newdress/eastern/kurtis/k10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k11:{
+                image:   'newdress/eastern/kurtis/k11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            k12:{
+                image:   'newdress/eastern/kurtis/k12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            k13:{
+                image:   'newdress/eastern/kurtis/k13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            k14:{
+                image:   'newdress/eastern/kurtis/k14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            k15:{
+                image:   'newdress/eastern/kurtis/k15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k14:{
+                image:   'newdress/eastern/kurtis/k14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k16:{
+                image:   'newdress/eastern/kurtis/k16.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k17:{
+                image:   'newdress/eastern/kurtis/k17.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k14:{
+                image:   'newdress/eastern/kurtis/k14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k18:{
+                image:   'newdress/eastern/kurtis/k18.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k19:{
+                image:   'newdress/eastern/kurtis/k19.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            k20:{
+                image:   'newdress/eastern/kurtis/k20.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh0:{
+                image:   'newdress/eastern/gharara/gh0.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh1:{
+                image:   'newdress/eastern/gharara/gh1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh2:{
+                image:   'newdress/eastern/gharara/gh2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh3:{
+                image:   'newdress/eastern/gharara/gh3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh4:{
+                image:   'newdress/eastern/gharara/gh4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh5:{
+                image:   'newdress/eastern/gharara/gh5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh6:{
+                image:   'newdress/eastern/gharara/gh6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh7:{
+                image:   'newdress/eastern/gharara/gh7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh8:{
+                image:   'newdress/eastern/gharara/gh8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh9:{
+                image:   'newdress/eastern/gharara/gh9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh10:{
+                image:   'newdress/eastern/gharara/gh10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh11:{
+                image:   'newdress/eastern/gharara/gh11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh12:{
+                image:   'newdress/eastern/gharara/gh12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh13:{
+                image:   'newdress/eastern/gharara/gh13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            gh14:{
+                image:   'newdress/eastern/gharara/gh14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh15:{
+                image:   'newdress/eastern/gharara/gh15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            gh16:{
+                image:   'newdress/eastern/gharara/gh16.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh17:{
+                image:   'newdress/eastern/gharara/gh17.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh18:{
+                image:   'newdress/eastern/gharara/gh18.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh22:{
+                image:   'newdress/eastern/gharara/gh22.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            gh12:{
+                image:   'newdress/eastern/gharara/gh12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            g1:{
+                image:   'newdress/eastern/gowns/g1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            g2:{
+                image:   'newdress/eastern/gowns/g2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g3:{
+                image:   'newdress/eastern/gowns/g3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g4:{
+                image:   'newdress/eastern/gowns/g4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g5:{
+                image:   'newdress/eastern/gowns/g5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            g6:{
+                image:   'newdress/eastern/gowns/g6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g7:{
+                image:   'newdress/eastern/gowns/g7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g8:{
+                image:   'newdress/eastern/gowns/g8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g9:{
+                image:   'newdress/eastern/gowns/g9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g10:{
+                image:   'newdress/eastern/gowns/g10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g11:{
+                image:   'newdress/eastern/gowns/g11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            g12:{
+                image:   'newdress/eastern/gowns/g12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            g13:{
+                image:   'newdress/eastern/gowns/g13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            g14:{
+                image:   'newdress/eastern/gowns/g14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            g15:{
+                image:   'newdress/eastern/gowns/g15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            et1:{
+                image:   'newdress/man/ethereal/et1.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et2:{
+                image:   'newdress/man/ethereal/et2.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et3:{
+                image:   'newdress/man/ethereal/et3.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et4:{
+                image:   'newdress/man/ethereal/et4.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et5:{
+                image:   'newdress/man/ethereal/et5.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et6:{
+                image:   'newdress/man/ethereal/et6.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et7:{
+                image:   'newdress/man/ethereal/et7.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et8:{
+                image:   'newdress/man/ethereal/et8.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et9:{
+                image:   'newdress/man/ethereal/et9.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            et10:{
+                image:   'newdress/man/ethereal/et10.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et11:{
+                image:   'newdress/man/ethereal/et11.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et12:{
+                image:   'newdress/man/ethereal/et12.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et13:{
+                image:   'newdress/man/ethereal/et13.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et14:{
+                image:   'newdress/man/ethereal/et14.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            et15:{
+                image:   'newdress/man/ethereal/et15.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk1:{
+                image:   'newdress/man/kurti/mk1.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mk2:{
+                image:   'newdress/man/kurti/mk2.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk3:{
+                image:   'newdress/man/kurti/mk3.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk4:{
+                image:   'newdress/man/kurti/mk4.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk5:{
+                image:   'newdress/man/kurti/mk5.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk6:{
+                image:   'newdress/man/kurti/mk6.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk7:{
+                image:   'newdress/man/kurti/mk7.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk8:{
+                image:   'newdress/man/kurti/mk8.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk9:{
+                image:   'newdress/man/kurti/mk9.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk10:{
+                image:   'newdress/man/kurti/mk10.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk11:{
+                image:   'newdress/man/kurti/mk11.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk12:{
+                image:   'newdress/man/kurti/mk12.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mk13:{
+                image:   'newdress/man/kurti/mk13.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mk14:{
+                image:   'newdress/man/kurti/mk14.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mk15:{
+                image:   'newdress/man/kurti/mk15.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mf1:{
+                image:   'newdress/man/formal/mf1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf2:{
+                image:   'newdress/man/formal/mf2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mf3:{
+                image:   'newdress/man/formal/mf3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            mf4:{
+                image:   'newdress/man/formal/mf4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf5:{
+                image:   'newdress/man/formal/mf5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf6:{
+                image:   'newdress/man/formal/mf6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf7:{
+                image:   'newdress/man/formal/mf7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf8:{
+                image:   'newdress/man/formal/mf8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf9:{
+                image:   'newdress/man/formal/mf9.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf10:{
+                image:   'newdress/man/formal/mf10.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf11:{
+                image:   'newdress/man/formal/mf11.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf12:{
+                image:   'newdress/man/formal/mf12.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf13:{
+                image:   'newdress/man/formal/mf13.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf14:{
+                image:   'newdress/man/formal/mf14.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            mf15:{
+                image:   'newdress/man/formal/mf15.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            ac1:{
+                image:   'newdress/man/active wear/ac1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac2:{
+                image:   'newdress/man/active wear/ac2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac3:{
+                image:   'newdress/man/active wear/ac3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac4:{
+                image:   'newdress/man/active wear/ac4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac5:{
+                image:   'newdress/man/active wear/ac5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac6:{
+                image:   'newdress/man/active wear/ac6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac7:{
+                image:   'newdress/man/active wear/ac7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac8:{
+                image:   'newdress/man/active wear/ac8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac9:{
+                image:   'newdress/man/active wear/ac9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac10:{
+                image:   'newdress/man/active wear/ac10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac11:{
+                image:   'newdress/man/active wear/ac11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac12:{
+                image:   'newdress/man/active wear/ac12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac13:{
+                image:   'newdress/man/active wear/ac13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac14:{
+                image:   'newdress/man/active wear/ac14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            ac15:{
+                image:   'newdress/man/active wear/ac15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+            be1:{
+                image:   'newdress/kids/kid boys/eastern/be1.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            be2:{
+                image:   'newdress/kids/kid boys/eastern/be2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be3:{
+                image:   'newdress/kids/kid boys/eastern/be3.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be4:{
+                image:   'newdress/kids/kid boys/eastern/be4.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            be5:{
+                image:   'newdress/kids/kid boys/eastern/be5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be6:{
+                image:   'newdress/kids/kid boys/eastern/be6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be7:{
+                image:   'newdress/kids/kid boys/eastern/be7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be8:{
+                image:   'newdress/kids/kid boys/eastern/be8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be9:{
+                image:   'newdress/kids/kid boys/eastern/be9.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            be10:{
+                image:   'newdress/kids/kid boys/eastern/be10.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be11:{
+                image:   'newdress/kids/kid boys/eastern/be11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be12:{
+                image:   'newdress/kids/kid boys/eastern/be12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            be13:{
+                image:   'newdress/kids/kid boys/eastern/be13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            be14:{
+                image:   'newdress/kids/kid boys/eastern/be14.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            be15:{
+                image:   'newdress/kids/kid boys/eastern/be15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            
+            bw1:{
+                image:   'newdress/kids/kid boys/western/bw1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            bw2:{
+                image:   'newdress/kids/kid boys/western/bw2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+           bw3:{
+                image:   'newdress/kids/kid boys/western/bw3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw4:{
+                image:   'newdress/kids/kid boys/western/bw4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw5:{
+                image:   'newdress/kids/kid boys/western/bw5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw6:{
+                image:   'newdress/kids/kid boys/western/bw6.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw7:{
+                image:   'newdress/kids/kid boys/western/bw7.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw8:{
+                image:   'newdress/kids/kid boys/western/bw8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw9:{
+                image:   'newdress/kids/kid boys/western/bw9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw10:{
+                image:   'newdress/kids/kid boys/western/bw10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw11:{
+                image:   'newdress/kids/kid boys/western/bw11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw12:{
+                image:   'newdress/kids/kid boys/western/bw12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw13:{
+                image:   'newdress/kids/kid boys/western/bw13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw14:{
+                image:   'newdress/kids/kid boys/western/bw14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            bw15:{
+                image:   'newdress/kids/kid boys/western/bw15.jpeg',
+                title: '2 Piece ',
+                price: 'PKR 6000',
+            },
+
+            e1:{
+                image:   'newdress/kids/kid girls/eastern/e1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            e2:{
+                image:   'newdress/kids/kid girls/eastern/e2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e3:{
+                image:   'newdress/kids/kid girls/eastern/e3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e4:{
+                image:   'newdress/kids/kid girls/eastern/e4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e5:{
+                image:   'newdress/kids/kid girls/eastern/e5.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e6:{
+                image:   'newdress/kids/kid girls/eastern/e6.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e7:{
+                image:   'newdress/kids/kid girls/eastern/e7.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e8:{
+                image:   'newdress/kids/kid girls/eastern/e8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e9:{
+                image:   'newdress/kids/kid girls/eastern/e9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e10:{
+                image:   'newdress/kids/kid girls/eastern/e10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e11:{
+                image:   'newdress/kids/kid girls/eastern/e11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e12:{
+                image:   'newdress/kids/kid girls/eastern/e12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e13:{
+                image:   'newdress/kids/kid girls/eastern/e13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e14:{
+                image:   'newdress/kids/kid girls/eastern/e14.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            e15:{
+                image:   'newdress/kids/kid girls/eastern/e15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            w1:{
+                image:   'newdress/kids/kid girls/western/w1.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w2:{
+                image:   'newdress/kids/kid girls/western/w2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            w3:{
+                image:   'newdress/kids/kid girls/western/w3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            w5:{
+                image:   'newdress/kids/kid girls/western/w4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            w6:{
+                image:   'newdress/kids/kid girls/western/w6.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w7:{
+                image:   'newdress/kids/kid girls/western/w15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w8:{
+                image:   'newdress/kids/kid girls/western/w8.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w9:{
+                image:   'newdress/kids/kid girls/western/w9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w10:{
+                image:   'newdress/kids/kid girls/western/w10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w11:{
+                image:   'newdress/kids/kid girls/western/w11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w12:{
+                image:   'newdress/kids/kid girls/western/w12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w13:{
+                image:   'newdress/kids/kid girls/western/w13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w14:{
+                image:   'newdress/kids/kid girls/western/w14.webp',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            w15:{
+                image:   'newdress/kids/kid girls/western/w15.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+
+
+            f1:{
+                image:   'newdress/women/formal/f1.jpg',
+                title: '3 Piece lawn',
+                price: 'PKR 6000',
+            },
+
+            f2:{
+                image:   'newdress/women/formal/f2.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 4000',
+            },
+
+            f3:{
+                image:   'newdress/women/formal/f3.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 3500',
+            },
+
+            f4:{
+                image:   'newdress/women/formal/f4.webp',
+                title: '3 Piece Cotton',
+                price: 'PKR 6200',
+            },
+
+
+            f5:{
+                image:   'newdress/women/formal/f5.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            f6:{
+                image:   'newdress/women/formal/f6.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            f7:{
+                image:   'newdress/women/formal/f7.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            f8:{
+                image:   'newdress/women/formal/f8.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+
+            f9:{
+                image:   'newdress/women/formal/f9.jpg',
+                title: '3 Piece silk',
+                price: 'PKR 6700',
+            },
+
+
+            f10:{
+                image:   'newdress/women/formal/f10.jpg',
+                title: '7 Piece lawn',
+                price: 'PKR 5000',
+            },
+
+
+            f11:{
+                image:   'newdress/women/formal/f11.jpg',
+                title: '3 Piece Cotton',
+                price: 'PKR 4700',
+            },
+
+
+            f12:{
+                image:   'newdress/women/formal/f12.jpg',
+                title: '3 Piece kadar',
+                price: 'PKR 4000',
+            },
+
+
+            f13:{
+                image:   'newdress/women/formal/f13.jpg',
+                title: '3 Piece Cotton',
+                price: 'PKR 3000',
+            },
+
+
+            f14:{
+                image:   'newdress/women/formal/f14.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            f15:{
+                image:   'newdress/women/formal/f15.jpg',
+                title: '3 Piece shiffon',
+                price: 'PKR 6000',
+            },
+
+
+
+d1:{
+                image:   'newdress/women/daily wear/d1.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d2:{
+                image:   'newdress/women/daily wear/d2.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d3:{
+                image:   'newdress/women/daily wear/d3.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d4:{
+                image:   'newdress/women/daily wear/d4.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d5:{
+                image:   'newdress/women/daily wear/d5.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d6:{
+                image:   'newdress/women/daily wear/d6.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d7:{
+                image:   'newdress/women/daily wear/d7.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d8:{
+                image:   'newdress/women/daily wear/d8.jpg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d9:{
+                image:   'newdress/women/daily wear/d9.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d10:{
+                image:   'newdress/women/daily wear/d10.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d11:{
+                image:   'newdress/women/daily wear/d11.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d12:{
+                image:   'newdress/women/daily wear/d12.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d13:{
+                image:   'newdress/women/daily wear/d13.jpeg',
+                title: '2 Piece Cotton',
+                price: 'PKR 6000',
+            },
+
+            d14:{
+                image:   'newdress/women/daily wear/d14 (2).jpg',
+                title: '3 Piece Lawn',
+                price: 'PKR 6000',
+            },
+
+            d15:{
+                image:   'newdress/women/daily wear/d15.jpg',
+                title: '3 Piece Cotton',
+                price: 'PKR 6000',
+            },
+            // Add more items here
+        };
+
+
+
+
+
+
+ // Function to update page content based on item ID
+function updateItemDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemId = urlParams.get('item');
+
+    if (itemId && items[itemId]) {
+        document.getElementById('itemImage').src = items[itemId].image;
+        document.getElementById('itemTitle').innerText = items[itemId].title;
+        document.getElementById('itemPrice').innerText = items[itemId].price;
+    }
+}
+
+// Function to increase quantity
+function increaseQuantity() {
+    let quantity = parseInt(document.getElementById('itemQuantity').innerText);
+    document.getElementById('itemQuantity').innerText = quantity + 1;
+}
+
+// Function to decrease quantity (minimum 1)
+function decreaseQuantity() {
+    let quantity = parseInt(document.getElementById('itemQuantity').innerText);
+    if (quantity > 1) {
+        document.getElementById('itemQuantity').innerText = quantity - 1;
+    }
+}
+
+// Function to handle size selection
+function selectSize(button) {
+    // Remove 'selected' class from all size buttons
+    const sizeButtons = document.querySelectorAll('.size-buttons button');
+    sizeButtons.forEach(btn => btn.classList.remove('selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('selected');
+}
+
+// Function to show toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.innerText = message;
+    toast.className = 'toast show';
+    setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+    }, 3000);
+}
+
+// Function to handle adding item to cart
+function addToCart() {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const item = {
+        image: document.getElementById('itemImage').src,
+        title: document.getElementById('itemTitle').innerText,
+        price: document.getElementById('itemPrice').innerText,
+        quantity: parseInt(document.getElementById('itemQuantity').innerText)
+    };
+    
+    cartItems.push(item);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    let cartCount = localStorage.getItem('cartCount') || 0;
+    cartCount = parseInt(cartCount) + 1;
+    localStorage.setItem('cartCount', cartCount);
+    
+    updateCartBadge();
+    showToast('Item added to cart!');
+}
+
+// Function to update the cart badge
+function updateCartBadge() {
+    let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+    const badge = document.getElementById('cartBadge');
+    if (badge) {
+        badge.innerText = cartCount;
+    }
+}
+
+// Function to get product details and set them on the page
+function loadProductDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('item');
+    const product = getProductDetails(productId);
+
+    document.getElementById('productImage').src = product.image;
+    document.getElementById('productName').textContent = product.name;
+    document.getElementById('productDescription').textContent = product.description;
+}
+
+// Mock function to get product details
+function getProductDetails(productId) {
+    const products = {
+        '123': {
+            name: 'Sample Product',
+            description: 'This is a sample product description.',
+            image: 'path/to/product-image.jpg'
+        }
+    };
+    return products[productId] || {};
+}
+
+// Function to open modals
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+    if (modalId === 'reviewsModal') {
+        loadReviews();
+    }
+}
+
+// Function to close modals
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Handle review form submission
+document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const productId = new URLSearchParams(window.location.search).get('item');
+    const rating = document.getElementById('rating').value;
+    const reviewText = document.getElementById('reviewText').value;
+
+    addReview(productId, rating, reviewText);
+
+    alert('Review submitted successfully!');
+    closeModal('reviewModal');
+    document.getElementById('reviewForm').reset();
+});
+
+// Function to add review to localStorage
+function addReview(productId, rating, reviewText) {
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    reviews.push({
+        productId: productId,
+        rating: rating,
+        review: reviewText,
+        approved: true
+    });
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+}
+
+// Function to load reviews
+function loadReviews() {
+    const productId = new URLSearchParams(window.location.search).get('item');
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    const productReviews = reviews.filter(review => review.productId === productId);
+
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    reviewsContainer.innerHTML = '';
+
+    if (productReviews.length === 0) {
+        reviewsContainer.innerHTML = '<p>No reviews yet.</p>';
+        return;
+    }
+
+    productReviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.innerHTML = `
+            <p><strong>Rating:</strong> ${review.rating}</p>
+            <p>${review.review}</p>
+            <hr>
+        `;
+        reviewsContainer.appendChild(reviewElement);
+    });
+}
+
+// Event listeners for buttons
+document.getElementById('viewReviewsBtn').addEventListener('click', () => openModal('reviewsModal'));
+document.getElementById('giveReviewBtn').addEventListener('click', () => openModal('reviewModal'));
+
+// Load product details and cart badge when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    updateItemDetails();
+    updateCartBadge();
+    loadProductDetails();
+});
+
+// back button
+// Function to go back to the item detail page
+function goBack() {
+    window.history.back();
+}
+
+// Existing functions and code...
+
+// Open modal and load reviews for the specific product
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+    if (modalId === 'reviewsModal') {
+        loadReviews();
+    }
+}
+
+// Event listeners for buttons
+document.getElementById('viewReviewsBtn').addEventListener('click', () => openModal('reviewsModal'));
+document.getElementById('giveReviewBtn').addEventListener('click', () => openModal('reviewModal'));
+
+// Load product details and cart badge when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    updateItemDetails();
+    updateCartBadge();
+    loadProductDetails();
+});
+
+
+
+
+
+// Function to open modals and store the referrer page
+function openModal(modalId) {
+    // Store the current URL or identifier in sessionStorage
+    sessionStorage.setItem('referrerPage', window.location.href);
+
+    document.getElementById(modalId).style.display = 'flex';
+    if (modalId === 'reviewsModal') {
+        loadReviews();
+    }
+}
+
+// Function to go back to the referrer page
+function goBack() {
+    const referrerPage = sessionStorage.getItem('referrerPage');
+    if (referrerPage) {
+        window.location.href = referrerPage;
+    } else {
+        console.error('No referrer page stored.');
+    }
+}
+
+// Existing functions and code...
+
+// Event listeners for buttons
+document.getElementById('viewReviewsBtn').addEventListener('click', () => openModal('reviewsModal'));
+document.getElementById('giveReviewBtn').addEventListener('click', () => openModal('reviewModal'));
+
+// Load product details and cart badge when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    updateItemDetails();
+    updateCartBadge();
+    loadProductDetails();
+});
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to handle the back navigation
+    function goBack() {
+        window.history.back();
+    }
+
+    // Select the back button using its unique id
+    var backButton = document.getElementById("productBackButton");
+    
+    // Set up the event listener for the back button
+    if (backButton) {
+        backButton.addEventListener("click", goBack);
+    }
+});
+
+
+document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const product = document.getElementById('product').value;
+    const rating = document.getElementById('rating').value;
+    const review = document.getElementById('review').value;
+
+    fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product, rating: parseInt(rating), review, status: 'pending' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Review submitted successfully!');
+        document.getElementById('reviewForm').reset();
+    });
+});
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

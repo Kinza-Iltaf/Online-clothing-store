@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .review-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .review-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .review-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="reviews-container">
+        <h1>Product Reviews</h1>
+        <div id="reviewsList">
+            <!-- Reviews will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadReviews();
+        });
+
+        function loadReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+            // Filter only approved reviews
+            const approvedReviews = reviews.filter(review => review.approved);
+
+            if (approvedReviews.length === 0) {
+                reviewsList.innerHTML = '<p>No reviews available.</p>';
+                return;
+            }
+
+            reviewsList.innerHTML = ''; // Clear previous content
+
+            approvedReviews.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review-item';
+                
+                reviewElement.innerHTML = `
+                    <h3>${review.product}</h3>
+                    <p>Rating: ${review.rating}</p>
+                    <p>${review.review}</p>
+                `;
+
+                reviewsList.appendChild(reviewElement);
+            });
+        }
+    </script>
+</body>
+</html>

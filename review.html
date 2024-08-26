@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .review-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .review-header {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .review-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button.cancel {
+            background-color: #dc3545;
+        }
+
+        .button.submit {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <div class="review-header">
+            <h1>Leave a Review</h1>
+        </div>
+
+        <form id="reviewForm">
+            <div class="form-group">
+                <label for="product">Product</label>
+                <input type="text" id="product" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="number" id="rating" min="1" max="5" required>
+            </div>
+            <div class="form-group">
+                <label for="review">Review</label>
+                <textarea id="review" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" class="button submit" onclick="submitReview()">Submit Review</button>
+                <button type="button" class="button cancel" onclick="cancelReview()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+    <script>
+
+
+function addReview(productId, rating, reviewText) {
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    reviews.push({
+        productId: productId,
+        rating: rating,
+        review: reviewText,
+        approved: false // or true, depending on your needs
+    });
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+}
+
+        function submitReview() {
+            const product = document.getElementById('product').value;
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+
+            if (!product || !rating || !review) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.push({ product, rating, review, approved: false });
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+            alert('Review submitted for moderation.');
+            window.location.href = 'index.html'; // Redirect to home page or a different page
+        }
+
+        function cancelReview() {
+            window.location.href = 'index.html'; // Redirect to home page or a different page
+        }
+    </script>
+</body>
+</html>

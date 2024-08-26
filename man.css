@@ -1,0 +1,34 @@
+#manmi {
+    max-width: 100%;
+    height: 450px;
+  
+  
+  }
+  .man-category-container {
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+}
+
+.man-category-item {
+    margin: 10px; /* Add some space between items */
+    text-align: center; /* Center the text below the images */
+}
+
+.man-category-item img {
+    width: 200px; /* Set a fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.man-category-item p {
+    margin: 5px 0 0; /* Add space above the text */
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.man-category-item a{
+   
+        display: block;
+        text-decoration: none; /* Remove underline from links */
+        color: black; /* Adjust text color as needed */
+      
+}

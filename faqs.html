@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+      <link rel="stylesheet" href="styles.css">  
+    <link rel="stylesheet" href="footer.css.css"> 
+    <link rel="stylesheet" href="FAQs.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    >
+    <script>
+        // Function to update the cart badge
+        function updateCartBadge() {
+            let cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cartBadge').innerText = cartCount;
+        }
+    
+        // Call update function on page load
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartBadge();
+    });
+
+    function updateCartBadge() {
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = cartCount;
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="header">
+      <div class="container">
+          <img class="logo" src="pew-removebg-preview.png" alt="logo">
+          <a href="shopping-cart-link.html">
+              <div class="cart-container">
+                  <img class="cart" src="icons8-cart.gif" alt="shopping-cart"/>
+                  <span id="cartBadge" class="cart-badge">0</span>
+              </div>
+          </a>
+          <a href="search-page-link.html">
+              <img class="search" src="icons8-search.gif" alt="search"/>
+          </a>
+          <input class="newinput" type="text" placeholder="I'm shopping for">
+          <a href="index.html" id="accountIcon">
+              <img class="account" src="accountnew.gif" alt="account"/>
+          </a>
+      </div>
+  </div>
+  
+      <div class="nav">
+          <!-- navigation -->
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+    
+                  <!-- Women Dropdown -->
+                  <li class="dropdown">
+                      <a href="women.html" class="dropbtn">Women</a>
+                      <div class="dropdown-content">
+                          <a href="women.html">Daily Wear </a>
+                          <a href="women.html">Formal</a>
+                          <div class="sub-dropdown">
+                              <a href="women-westernwear.html">Western Wear</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-westernwear.html">Jeans</a>
+                                  <a href="women-westernwear.html">Blazer</a>
+                                  <a href="women-westernwear.html">Formal Shirts</a>
+                               
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="women-eastern.html">Eastern</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="women-eastern.html">Gown</a>
+                                  <a href="women-eastern.html">Sharara</a>
+                             
+                                  <a href="women-eastern.html">Kurti</a>
+    
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <!-- Men Dropdown -->
+                  <li class="dropdown">
+                      <a href="men.html" class="dropbtn">Men</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="men.html">Ethereal</a>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="men.html">Kurtas</a>
+                          </div>
+                          <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+    
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                      </div>
+                  </li>
+    
+                  <!-- Kids Dropdown -->
+                  <li class="dropdown">
+                      <a href="kids.html" class="dropbtn">Kids</a>
+                      <div class="dropdown-content">
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Girls</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                                
+                              </div>
+                          </div>
+                          <div class="sub-dropdown">
+                              <a href="kids.html">Boys</a>
+                              <div class="dropdown-subcontent">
+                                  <a href="kids.html">Eastern</a>
+                                  <a href="kids.html">Western</a>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+    
+                  <li><a href="index.html">New Arrival</a></li>
+                  <li><a href="user-dashboard.html">Dashboard</a></li>
+                  <li><a href="Sale.html">Sale</a></li>
+              </ul>
+          </nav>
+      </div>
+
+    <h2  id="twofaqs">FAQs</h2>
+
+    <!-- main code of the page -->
+
+    <div class="faq-section">
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="question-text">How can i place order?</span>
+                <span class="toggle-button">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>In order to place an order with khasstores , you will be required to:</p>
+                <ul>
+                    <li>Shop for the items you want</li>
+                    <li>Add the items to your Shopping Cart.</li>
+                    <li> Proceed to checkout.</li>
+                    <li>  Enter billing and shipping information( make sure the billing address is same as the shipping address).</li>
+                    <li> Provide payment information.</li>
+                    <li> Review and submit your order.</li>
+                    <li> Check for order confirmation via email or text</li>
+                </ul>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="question-text">How can I track my order?</span>
+                <span class="toggle-button">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can track your order by visiting the 'Track Order' page on our website. Enter your order number to get real-time updates.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="question-text">How i can know that Elegance Emporium has received my order?</span>
+                <span class="toggle-button">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>After you place your order, you will receive an acknowledgement e-mail from eleganceemporium.com (info@eleganceemporium.com) to confirm that your orders have been well-received. Next working day local customers (within Pakistan) will receive a phone call from our department to confirm your order. Do note that an order will only be shipped when its credit card payment has been approved, and in case of COD orders. An order is shipped when billing and delivery address is verified..</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="question-text">There is missing item in my order. What should i do?</span>
+                <span class="toggle-button">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>If there is any missing item(s), please contact at us right away at the provided email: info@eleganceemporium.com or call us at: (+92) 000 000 000 during working hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h2 >Get in touch</h2>
+                <ul class="contact-info">
+                    <li><img id="icon" src="location.gif" alt="location"></i> ABC street 123 Road, Lahore</li>
+                    <li><img id="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/gmail.png" alt="gmail"/></i> info@khasstores.com</li>
+                    <li><img id="icon" width="48" height="48" src="https://img.icons8.com/pulsar-line/48/ringer-volume.png" alt="ringer-volume"/></i> (+92) 304 111 0031</li>
+                </ul>
+                <ul class="footer-social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Customer Support</h2>
+                <ul>
+                    <li><a href="shipping.html">Shipping And Handling</a></li>
+                    <li><a href="Retur-and-exchange.html">Our Policies</a></li>
+                    <li><a href="faqs.html">Help & FAQs</a></li>
+                    <li><a href="product-reviews.html">Reviews And Rating</a></li>
+                  
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2>Customer Queries</h2>
+                <ul>
+            
+                   
+                    <li><a href="term-and-services.html">Terms of Service</a></li>
+                    <li><a href="track_order.html">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Quick Links</h2>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="Contact-us.html"> Contact Us</a></li>
+                  
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 >Sign up and save</h2>
+                <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                <div class="subscribe">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+      </footer>
+      
+
+    <script > 
+        // script.js
+document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const toggleButton = question.querySelector('.toggle-button');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.display === 'block';
+            answer.style.display = isOpen ? 'none' : 'block';
+            toggleButton.textContent = isOpen ? '+' : '-';
+        });
+    });
+});
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,856 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Clothing Store</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .item .image-container {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .item img {
+            width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .details {
+            text-align: center;
+        }
+
+        .details h3 {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .details p {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+        #viewMoreBtn{
+            height: 45px;
+            width: 150px;
+            background-color: rgb(147, 45, 45);
+            padding: 5px;
+            color: #ccc;
+            font-size: 20px;
+            border:  4px solid black;
+            border-radius: 5px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #viewMoreBtn:hover{
+            background-color:  rgb(165, 71, 71);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-gallery">
+        <div class="item">
+            <div class="image-container">
+                <img src="newdress/home/w13pmessouri12000.pjg.webp" alt="Clothing Image 1">
+            </div>
+            <div class="details">
+                <h3>2 Piece Lawn</h3>
+                <p>PKR 5000</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image-container">
+                <img src="newdress/home/w2.jpg" alt="Clothing Image 2">
+            </div>
+            <div class="details">
+                <h3>3 Piece Lawn</h3>
+                <p>PKR 7000</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image-container">
+                <img src="newdress/home/w3.jpeg" alt="Clothing Image 3">
+            </div>
+            <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image-container">
+                <img src="newdress/home/w4.jpg" alt="Clothing Image 4">
+            </div>
+            <div class="details">
+                <h3>2 Piece Cotton</h3>
+                <p>PKR 6000</p>
+            </div>
+        </div>
+
+        <div class="item hidden">
+            <div class="image-container">
+                <img src="newdress/home/w14pmessouri12001.pjg.webp" alt="Clothing Image 5">
+            </div>
+            <div class="details">
+                <h3>3 Piece Lawn</h3>
+                <p>PKR 6000</p>
+            </div>
+        </div>
+
+        <div class="item hidden">
+            <div class="image-container">
+                <img src="newdress/home/w11.jpg" alt="Clothing Image 6">
+            </div>
+            <div class="details">
+                <h3>4 Piece Lawn</h3>
+                <p>PKR 7000</p>
+            </div>
+        </div>
+
+        <div class="item hidden">
+            <div class="image-container">
+                <img src="newdress/home/w12.jpg" alt="Clothing Image 7">
+            </div>
+            <div class="details">
+                <h3>4 Piece Lawn</h3>
+                <p>PKR 7000</p>
+            </div>
+        </div>
+        <button id="viewMoreBtn">View More</button>
+    </div>
+
+   
+
+    <script>
+        document.getElementById('viewMoreBtn').addEventListener('click', function() {
+            const hiddenItems = document.querySelectorAll('.item.hidden');
+            hiddenItems.forEach(item => {
+                item.classList.remove('hidden');
+            });
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="footer.css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <footer >
+        <div class="container">
+            <div class="column">
+                <h2>Get in touch</h2>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 3 KM Sahianwala Road, Khurrianwala, Faisalabad</li>
+                    <li><i class="fas fa-envelope"></i> info@khasstores.com</li>
+                    <li><i class="fas fa-phone"></i> (+92) 304 111 0031</li>
+                </ul>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Customer Support</h2>
+                <ul>
+                    <li><a href="#">Payment & Delivery</a></li>
+                    <li><a href="#">Return & Exchange Policy</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Product Care</a></li>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">How to Order</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Customer Queries</h2>
+                <ul>
+                    <li><a href="#">Store Locator</a></li>
+                    <li><a href="#">Wholesale Queries</a></li>
+                    <li><a href="#">Terms & Services</a></li>
+                    <li><a href="#">Refund policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Khas for Business</a></li>
+                    <li><a href="#">Track Your Order</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Fabric Glossary</a></li>
+                    <li><a href="#">I Wear KHAS</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Latest Ads</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Sign up and save</h2>
+                <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                <div class="subscribe">
+                    <input type="email" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+      </footer> -->
+
+<!-- 
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Return and Exchange Policy</title>
+          <link rel="stylesheet" href="test.css">
+      </head>
+      <body>
+          <div class="policy-container">
+              <div class="button-container">
+                  <button class="policy-button" data-target="exchange-info">Exchange Policy</button>
+                  <button class="policy-button" data-target="return-info">Return Policy</button>
+                  <button class="policy-button" data-target="refund-info">Refund Policy</button> -->
+                  <!-- Add more buttons as needed -->
+              <!-- </div>
+      
+              <div class="policy-info" id="exchange-info">
+                  <h3>Exchange Policy</h3>
+                  <p>The product can be exchanged within 7 days after delivery.</p>
+                  <ol>
+                      <li>Complete the return of the order.</li>
+                      <li>Pack the product securely.</li>
+                      <li>Ship it via online departure or to our store.</li>
+                  </ol>
+              </div>
+      
+              <div class="policy-info" id="return-info">
+                  <h3>Return Policy</h3>
+                  <p>Details about the return policy go here.</p> -->
+                  <!-- Add details as needed -->
+              <!-- </div>
+      
+              <div class="policy-info" id="refund-info">
+                  <h3>Refund Policy</h3>
+                  <p>Details about the refund policy go here.</p> -->
+                  <!-- Add details as needed -->
+              <!-- </div>
+          </div>
+      
+          <script src="test.js"></script>
+      </body>
+      </html> -->
+
+      <!-- <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Navigation Bar</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+              }
+              .navbar {
+                  overflow: hidden;
+                  background-color: #333;
+              }
+              .navbar a {
+                  float: left;
+                  font-size: 16px;
+                  color: white;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+              }
+              .dropdown {
+                  float: left;
+                  overflow: hidden;
+              }
+              .dropdown .dropbtn {
+                  font-size: 16px;
+                  border: none;
+                  outline: none;
+                  color: white;
+                  padding: 14px 16px;
+                  background-color: inherit;
+                  font-family: inherit;
+                  margin: 0;
+              }
+              .navbar a:hover, .dropdown:hover .dropbtn {
+                  background-color: #575757;
+              }
+              .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  background-color: #f9f9f9;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  z-index: 1;
+              }
+              .dropdown-content a {
+                  float: none;
+                  color: black;
+                  padding: 12px 16px;
+                  text-decoration: none;
+                  display: block;
+                  text-align: left;
+              }
+              .dropdown-content a:hover {
+                  background-color: #ddd;
+              }
+              .dropdown:hover .dropdown-content {
+                  display: block;
+              }
+              .dropdown-subcontent {
+                  display: none;
+                  position: absolute;
+                  left: 160px;
+                  top: 0;
+                  background-color: #f9f9f9;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  z-index: 1;
+              }
+              .dropdown-content .sub-dropdown:hover .dropdown-subcontent {
+                  display: block;
+              }
+              .sub-dropdown {
+                  position: relative;
+              }
+          </style>
+      </head>
+      <body>
+      
+        <div class="nav">
+            <!-- navigation-->
+            <!-- <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Collections</button>
+                        <div class="dropdown-content"> -->
+                            <!-- Women Section -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="women.html">Women</a>
+                                <div class="dropdown-subcontent">
+                                    <a href="#women-unstitched">Unstitched</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#unstitched-printed">Printed</a>
+                                        <a href="#unstitched-embroidered">Embroidered</a>
+                                        <a href="#unstitched-bottoms">Bottoms</a>
+                                        <a href="#unstitched-sale">Sale</a>
+                                    </div>
+                                    <a href="#women-dailywear">Daily Wear</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#dailywear-printed">Printed</a>
+                                        <a href="#dailywear-embroidered">Embroidered</a>
+                                        <a href="#dailywear-unembroidered">Unembroidered</a>
+                                    </div>
+                                    <a href="#women-formalwear">Formal Wear</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#formalwear-suits">Formal</a>
+                                        <a href="#formalwear-dresses">Semi Formal</a>
+                                        <a href="#formalwear-2piece">2 pc</a>
+                                        <a href="#formalwear-3piece">3 pc</a>
+                                        <a href="#formalwear-glam">Glam</a>
+                                    </div>
+                                    <a href="#women-westernwear">Western Wear</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#westernwear-tops">Tops</a>
+                                        <a href="#westernwear-jeans">Jeans</a>
+                                        <a href="#westernwear-jackets">Jackets</a>
+                                        <a href="#westernwear-dresses">Dresses</a>
+                                        <a href="#westernwear-denim">Denim</a>
+                                    </div>
+                                    <a href="#women-easterntops">Eastern Tops</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#easterntops-short">Short Tops</a>
+                                        <a href="#easterntops-long">Long Tops</a>
+                                        <a href="#easterntops-kurtis">Kurtis</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- Men Section -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#men">Men</a>
+                                <div class="dropdown-subcontent">
+                                    <a href="#men-suits">Suits</a>
+                                    <a href="#men-kurtas">Kurtas</a>
+                                </div>
+                            </div> -->
+                            <!-- Kids Section -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#kids">Kids</a>
+                                <div class="dropdown-subcontent">
+                                    <a href="#kids-girls">Girls</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#girls-suits">Suits</a>
+                                        <a href="#girls-pants">Pants</a>
+                                    </div>
+                                    <a href="#kids-boys">Boys</a>
+                                    <div class="dropdown-subcontent">
+                                        <a href="#boys-suits">Suits</a>
+                                        <a href="#boys-pants">Pants</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- New Arrival -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#new-arrival">New Arrival</a>
+                            </div> -->
+                            <!-- Best Seller -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#best-seller">Best Seller</a>
+                            </div> -->
+                            <!-- Summer '24 -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#summer-24">Summer '24</a>
+                            </div> -->
+                            <!-- Unstitched -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#unstitched">Unstitched</a>
+                            </div> -->
+                            <!-- Sale -->
+                            <!-- <div class="sub-dropdown">
+                                <a href="#sale">Sale</a>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div> -->
+        
+      
+      <!-- </body>
+      </html> -->
+       <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            
+       
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .item .image-container {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .item img {
+            width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 30px;
+        }
+
+        .details {
+            text-align: center;
+        }
+
+        .details h3 {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .details p {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* viewmore button style */
+        #viewMoreBtn {
+            margin-top: 20px;
+            height: 45px;
+            width: 200px;
+            background-color: black;
+            padding: 5px;
+            color: #ccc;
+            font-size: 20px;
+            border: 4px solid black;
+            border-radius: 5px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #viewMoreBtn:hover {
+            background-color: rgb(30, 29, 29);
+        }
+        </style>
+      </head>
+      <body>
+        <h3 id="na">New Arrival</h3>
+
+
+<div class="image-gallery">
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w13pmessouri12000">
+          <img src="newdress/home/w13pmessouri12000.pjg.webp" alt="Clothing Image 1">
+     </a>
+        </div>
+      <div class="details">
+          <h3>2 Piece Lawn</h3>
+          <p>PKR 5000</p>
+      </div>
+  </div>
+  <div class="item">
+    <a href="item-detail.html?item=w2">
+      <div class="image-container">
+          <img src="newdress/home/w2.jpg" alt="Clothing Image 2">
+      </a>
+      </div>
+      <div class="details">
+          <h3>3 Piece Lawn</h3>
+          <p>PKR 7000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w3">
+          <img src="newdress/home/w3.jpeg" alt="Clothing Image 3">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w4">
+          <img src="newdress/home/w4.jpg" alt="Clothing Image 4">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w5">
+          <img src="newdress/home/w5.jpg" alt="Clothing Image 5">
+          </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w6griptopdyed">
+          <img src="newdress/home/w6griptopdyed.jpg" alt="Clothing Image 6">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w7layeredtop">
+          <img src="newdress/home/w7layeredtop.jpg" alt="Clothing Image 7">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w8">
+          <img src="newdress/home/w8.jpg" alt="Clothing Image 8" >
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w9">
+          <img src="newdress/home/w9.jpg" alt="Clothing Image 9">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w10">
+          <img src="newdress/home/w10.jpg" alt="Clothing Image 10">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m1dobbykurta2">
+          <img src="newdress/home/m1dobbykurta2.jpg" alt="Clothing Image 11">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m2dobbykurta3">
+          <img src="newdress/home/m2dobbykurta3.jpg" alt="Clothing Image 12">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w11">
+          <img src="newdress/home/w11.jpg" alt="Clothing Image 13">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m4">
+          <img src="newdress/home/m4.jpg" alt="Clothing Image 14">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=m5">
+          <img src="newdress/home/m5.jpg" alt="Clothing Image 15">
+        </a>
+      </div>
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+  <div class="item">
+      <div class="image-container">
+        <a href="item-detail.html?item=w12">
+        
+          <img src="newdress/home/w12.jpg" alt="Clothing Image 16">
+        </a>
+      </div>
+
+      <div class="details">
+          <h3>2 Piece Cotton</h3>
+          <p>PKR 6000</p>
+      </div>
+  </div>
+
+  <div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=w30">
+        <img src="newdress/women/w30.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=m6">
+        <img src="newdress/home/m6.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item">
+    <div class="image-container">
+        <a href="item-detail.html?item=w20embroideredorganzatop">
+        <img src="newdress/home/w20embroideredorganzatop.jpg" alt="Clothing Image 15">
+        </a>
+    </div>
+    <div class="details">
+        <h3>2 Piece Cotton</h3>
+        <p>PKR 6000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=w14">
+        <img src="newdress/home/w14.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=w15">
+        <img src="newdress/home/w15.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=w16">
+        <img src="newdress/home/w16.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=m7">
+        <img src="newdress/home/m7.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=w17">
+        <img src="newdress/home/w17.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+<div class="item hidden">
+    <div class="image-container">
+        <a href="item-detail.html?item=w19">
+        <img src="newdress/home/w19.jpg" alt="Clothing Image 7">
+        </a>
+    </div>
+    <div class="details">
+        <h3>4 Piece Lawn</h3>
+        <p>PKR 7000</p>
+    </div>
+</div>
+
+</div>
+<button id="viewMoreBtn">View More</button>
+
+<script>
+    document.getElementById('viewMoreBtn').addEventListener('click', function() {
+        const hiddenItems = document.querySelectorAll('.item.hidden');
+        hiddenItems.forEach(item => {
+            item.classList.remove('hidden');
+        });
+        this.style.display = 'none';
+    });
+</script>
+</body>
+</html>
+      

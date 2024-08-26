@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance Emporium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <!-- navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="women.html" class="dropbtn">Women</a>
+                    <div class="dropdown-content">
+                        <a href="women.html">Daily Wear</a>
+                        <a href="women.html">Formal</a>
+                        <div class="sub-dropdown">
+                            <a href="women-westernwear.html">Western Wear</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-westernwear.html">Jeans</a>
+                                <a href="women-westernwear.html">Blazer</a>
+                                <a href="women-westernwear.html">Formal Shirts</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="women-eastern.html">Eastern</a>
+                            <div class="dropdown-subcontent">
+                                <a href="women-eastern.html">Gown</a>
+                                <a href="women-eastern.html">Sharara</a>
+                                <a href="women-eastern.html">Kurti</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="men.html" class="dropbtn">Men</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="men.html">Ethereal</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Kurtas</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Western</a>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="men.html">Active Wear</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="kids.html" class="dropbtn">Kids</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Girls</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="kids.html">Boys</a>
+                            <div class="dropdown-subcontent">
+                                <a href="kids.html">Eastern</a>
+                                <a href="kids.html">Western</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#new-arrival-section">New Arrival</a></li>
+                <li><a href="user-dashboard.html">Dashboard</a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        </nav>
+    </div>
+    <header>
+        <input class="newinput" type="text" id="searchInput" placeholder="I'm shopping for..." oninput="performSearch()">
+    </header>
+    <div id="searchResults" class="results-container"></div>
+    <script >
+        const categories = {
+    women: [
+        { name: 'Daily Wear', page: 'women.html' },
+        { name: 'Formal', page: 'women.html' },
+        { name: 'Western Wear', page: 'women-westernwear.html' },
+        { name: 'Eastern', page: 'women-eastern.html' }
+    ],
+    men: [
+        { name: 'Ethereal', page: 'men.html' },
+        { name: 'Kurtas', page: 'men.html' },
+        { name: 'Western', page: 'men.html' },
+        { name: 'Active Wear', page: 'men.html' }
+    ],
+    kids: [
+        { name: 'Girls', page: 'kids.html' },
+        { name: 'Boys', page: 'kids.html' }
+    ]
+};
+
+function performSearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const resultsContainer = document.getElementById('searchResults');
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    for (const [category, subcategories] of Object.entries(categories)) {
+        subcategories.forEach(subcategory => {
+            if (subcategory.name.toLowerCase().includes(query)) {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'search-item';
+                itemElement.innerHTML = `
+                    <h3>${subcategory.name}</h3>
+                    <button onclick="navigateToCategory('${subcategory.page}')">View ${subcategory.name}</button>
+                `;
+                resultsContainer.appendChild(itemElement);
+            }
+        });
+    }
+}
+
+function navigateToCategory(page) {
+    window.location.href = page;
+}
+
+    </script>
+</body>
+</html>

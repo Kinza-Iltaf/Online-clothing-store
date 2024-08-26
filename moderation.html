@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+        }
+        .product-form, .product-list {
+            margin-bottom: 20px;
+        }
+        .product-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-item button {
+            padding: 5px 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-item button.delete {
+            background-color: #dc3545;
+        }
+        .product-item button.edit {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Management</h1>
+
+        <!-- Form to Add or Edit Products -->
+        <div class="product-form">
+            <h2>Add/Edit Product</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="number" id="productPrice" placeholder="Price" required>
+                <textarea id="productDescription" placeholder="Description" required></textarea>
+                <button type="submit">Save Product</button>
+            </form>
+        </div>
+
+        <!-- List of Products -->
+        <div class="product-list" id="productList">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Load products from localStorage and display them
+        function loadProducts() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.className = 'product-item';
+                productElement.innerHTML = `
+                    <div>
+                        <h3>${product.name}</h3>
+                        <p>Price: $${product.price}</p>
+                        <p>${product.description}</p>
+                    </div>
+                    <div>
+                        <button class="edit" onclick="editProduct(${product.id})">Edit</button>
+                        <button class="delete" onclick="deleteProduct(${product.id})">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(productElement);
+            });
+        }
+
+        // Add or Edit Product
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('productId').value;
+            const name = document.getElementById('productName').value;
+            const price = parseFloat(document.getElementById('productPrice').value);
+            const description = document.getElementById('productDescription').value;
+
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productIndex = products.findIndex(p => p.id === parseInt(id));
+
+            if (productIndex > -1) {
+                // Edit existing product
+                products[productIndex] = { id: parseInt(id), name, price, description };
+            } else {
+                // Add new product
+                const newProduct = { id: products.length ? products[products.length - 1].id + 1 : 1, name, price, description };
+                products.push(newProduct);
+            }
+
+            localStorage.setItem('products', JSON.stringify(products));
+            loadProducts();
+            document.getElementById('productForm').reset();
+        });
+
+        // Edit Product
+        function editProduct(id) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products.find(p => p.id === id);
+
+            if (product) {
+                document.getElementById('productId').value = product.id;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productDescription').value = product.description;
+            }
+        }
+
+        // Delete Product
+        function deleteProduct(id) {
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('products', JSON.stringify(products));
+            loadProducts();
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>

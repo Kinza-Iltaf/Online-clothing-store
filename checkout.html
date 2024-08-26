@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .checkout-header {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkout-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .checkout-section {
+            margin-bottom: 20px;
+        }
+
+        .checkout-section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .checkout-section p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .order-summary {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .order-summary h3 {
+            margin-top: 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-item img {
+            width: 100px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .order-item-details {
+            flex: 1;
+        }
+
+        .order-item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button.cancel {
+            background-color: #dc3545;
+        }
+
+        .button.confirm {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+        </div>
+        
+
+        <div class="checkout-section">
+            <h2>Shipping Information</h2>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="123 Main Street" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="City" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" placeholder="State" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" placeholder="ZIP Code" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" placeholder="Country" required>
+            </div>
+        </div>
+
+        <div class="checkout-section">
+            <h2>Payment Information</h2>
+            <div class="form-group">
+                <label for="card-name">Cardholder Name</label>
+                <input type="text" id="card-name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="123" required>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="orderItems">
+                <!-- Order items will be dynamically inserted here -->
+            </div>
+            <div class="order-summary-total">
+                <div class="cart-total">
+                    <h2>Total Amount: <span id="totalAmount">PKR 0.00</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-actions">
+            <button class="button cancel" onclick="cancelOrder()">Cancel</button>
+            <button class="button confirm" onclick="confirmOrder()">Confirm Order</button>
+        </div>
+    </div>
+
+    <script>
+        function loadOrderItems() {
+            const orderItemsContainer = document.getElementById('orderItems');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const orderItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            
+            let totalAmount = 0;
+
+            if (orderItems.length === 0) {
+                orderItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                totalAmountElement.innerText = 'PKR 0.00'; // Set to 0 when empty
+                return;
+            }
+
+            orderItemsContainer.innerHTML = ''; // Clear previous content
+
+            orderItems.forEach((item) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="order-item-details">
+                        <h2>${item.title}</h2>
+                        <p>${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                    </div>
+                `;
+
+                orderItemsContainer.appendChild(itemElement);
+
+                // Calculate total amount
+                const priceValue = parseFloat(item.price.replace('PKR ', '').replace(',', ''));
+                const itemTotal = priceValue * item.quantity;
+                totalAmount += itemTotal;
+            });
+
+            // Update total amount display
+            totalAmountElement.innerText = `PKR ${totalAmount.toFixed(2)}`;
+        }
+
+        function cancelOrder() {
+            window.location.href = 'index.html'; // Redirect to home page or any desired page
+        }
+
+        function confirmOrder() {
+            // Implement order confirmation logic here (e.g., send order to server)
+            alert('Order confirmed!');
+            localStorage.removeItem('cartItems'); // Clear cart
+            window.location.href = 'index.html'; // Redirect to home page or confirmation page
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrderItems();
+        });
+        
+       </script> 
+        
+        
+        </body>
+</html>
